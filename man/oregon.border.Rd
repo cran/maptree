@@ -1,12 +1,12 @@
 \name{oregon.border}
-\alias{oregon}
+\alias{oregon.border}
 \title{Boundary of Oregon, USA}
 \description{
-  The boundary of the state of Oregon, USA, in 
+  The boundary of the state of Oregon, USA, in
   \code{\link{lines}} format.
 }
 \usage{data (oregon.border)}
-\format{A data frame with 485 rows and 2 columns (the components 
+\format{A data frame with 485 rows and 2 columns (the components
   \code{"x"} and \code{"y"}).}
 \details{
   The map projection for this boundary, as well as the point

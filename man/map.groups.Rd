@@ -3,42 +3,42 @@
 \title{Map Groups of Observations}
 \description{
   Draws maps of groups of observations created by clustering,
-  classification or regression trees, or some other type of 
+  classification or regression trees, or some other type of
   classification.
 }
 \usage{
   map.groups (pts, group, pch=19, size=5, col=NULL, border=NULL)
 }
 \arguments{
-  \item{pts}{matrix or data frame with components \code{"x"}, 
+  \item{pts}{matrix or data frame with components \code{"x"},
              and \code{"y"} for each observation (see details).}
   \item{group}{vector of integer class numbers corresponding to
-               \code{pts} (see details), and indexing colors 
+               \code{pts} (see details), and indexing colors
                in \code{col}.}
   \item{pch}{symbol number from \code{par("pch")} if < 100, otherwise
              parameter \code{n} for ngon.}
   \item{size}{size in mm of shaded square symbol.}
-  \item{col}{vector of fill colors from \code{\link{hsv}}, \code{\link{rgb}}, 
+  \item{col}{vector of fill colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
-  \item{border}{vector of border colors from \code{\link{hsv}}, 
-             \code{\link{rgb}}, 
+  \item{border}{vector of border colors from \code{\link{hsv}},
+             \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
 }
 \details{
   If the number of rows of \code{pts} is not equal to the length
   of \code{group}, then (1) \code{pts} are assumed to represent
-  polygons and \code{\link{polygon}} is used, and (2) the fill and 
-  border colors indexed by \code{group} are matched to the polygons 
+  polygons and \code{\link{polygon}} is used, and (2) the fill and
+  border colors indexed by \code{group} are matched to the polygons
   in \code{pts} through \code{names(group)} and \code{pts$x[is.na(pts$y)]}.
-  Otherwise, \code{group} is assumed to parallel \code{pts}, and, 
+  Otherwise, \code{group} is assumed to parallel \code{pts}, and,
   if \code{pch < 100}, then \code{\link{points}} is used, otherwise
-  \code{\link{ngon}}, to draw shaded polygon symbols for each 
+  \code{\link{ngon}}, to draw shaded polygon symbols for each
   observation in pts.
 
-  This graphic function maintains the aspect ratio of the input coordinates 
-  in the output graphic by setting \code{par(pin=)}, thus the map does not 
+  This graphic function maintains the aspect ratio of the input coordinates
+  in the output graphic by setting \code{par(pin=)}, thus the map does not
   scale dynamically in an on-screen window.
 }
 \value{The vector of fill colors supplied or generated.}

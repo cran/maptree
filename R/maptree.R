@@ -402,31 +402,32 @@ map.groups <- function (pts, group, pch=19, size=5, col=NULL,
   if (nrow(pts) != length(group)) 
     if (is.null (names (group)))
       stop ("map.groups: group has no names")
-  dx <- diff(range(pts$x,na.rm=TRUE))
-  dy <- diff(range(pts$y,na.rm=TRUE))
+  nna <- seq (nrow (pts))[!is.na (pts$y)]
+  dx <- diff (range (pts$x[nna]))
+  dy <- diff (range (pts$y[nna]))
   px <- par("pin")[1]
   py <- par("pin")[2]
   if (dx/dy > px/py) py <- px * dy/dx else px <- py * dx/dy
   par(pin = c(px, py))
-  plot(range(pts$x,na.rm=TRUE),range(pts$y,na.rm=TRUE),type="n",
-    axes=FALSE,xlab="",ylab="")
+  plot ( range (pts$x[nna]), range (pts$y[nna]), type="n",
+    axes=FALSE, xlab="", ylab="")
   ncol <- length (unique (group))
   if (is.null(col)) fkol <- rainbow (ncol)
   else if (col=="gray" | col=="grey") fkol <- 
-    gray (seq(0.8,0.2,length=ncol))
+    gray (seq(0.8, 0.2, length=ncol))
   else fkol <- rep (col, ncol)
   if (is.null(border)) bkol <- fkol
   else bkol <- rep (border, ncol)
-  if (nrow(pts) != length(group)) {
-    i <- pts$x[is.na(pts$y)]
-    j <- match (i, as.integer(names(group)))
+  if (nrow (pts) != length (group)) {
+    i <- pts$x[is.na (pts$y)]
+    j <- match (i, as.integer (names (group)))
     polygon (pts$x, pts$y, lwd=0.1,
       col=fkol[group[j]], border=bkol[group[j]])
     }
   else if (pch < 100 | mode(pch) == "character") points (pts$x, 
-    pts$y,col=fkol[group],pch=pch,cex=1.5*size/25.4/par("cin")[1])
-  else apply(data.frame(x=pts$x,y=pts$y,d=size,c=I(fkol[group])),
-    1,ngon,n=pch-100,type=1)
+    pts$y, col=fkol[group], pch=pch, cex=1.5*size/25.4/par("cin")[1])
+  else apply (data.frame (x=pts$x, y=pts$y, d=size, c=I(fkol[group])),
+    1, ngon, n=pch-100, type=1)
   invisible (fkol)
 }
 

@@ -14,7 +14,7 @@
   \item{k}{desired number of groups.}
   \item{h}{height at which to prune for grouping.}
 
-  At least one of \code{k} or \code{h} must be specified; \code{k} takes 
+  At least one of \code{k} or \code{h} must be specified; \code{k} takes
   precedence if both are given.
 }
 \details{
@@ -23,8 +23,8 @@
 \value{Pruned cluster object of class \code{hclust}.}
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
-  \code{\link{hclust}}, 
-  \code{\link{twins.object}}, 
+  \code{\link[mva]{hclust}}, 
+  \code{\link[cluster]{twins.object}}, 
   \code{\link{cutree}}, 
   \code{\link{draw.clust}}
 }

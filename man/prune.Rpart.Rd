@@ -2,7 +2,7 @@
 \alias{prune.Rpart}
 \title{Prunes an Rpart Classification or Regression Tree}
 \description{
-  Reduces a prediction tree produced by \code{\link{rpart}} to a 
+  Reduces a prediction tree produced by \code{\link{rpart}} to a
   smaller tree by specifying either a cost-complexity parameter,
   or a number of nodes to which to prune.
 }
@@ -19,14 +19,15 @@
 }
 \details{
   A minor enhancement of the existing \code{\link{prune.rpart}} to
-  incorporate the parameter \code{best} as it is used in  
-  \code{\link{prune.tree}}.  See example.
+  incorporate the parameter \code{best} as it is used in
+  \code{\link[tree]{prune.tree}}.  See example.
 }
 \value{Pruned tree object of class \code{rpart}.}
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
-  \code{\link{rpart}}, 
-  \code{\link{prune.rpart}}
+  \code{\link[tree]{prune.tree}},
+  \code{\link[rpart]{rpart}}, 
+  \code{\link[rpart]{prune.rpart}}
 }
 \examples{
   library (rpart)

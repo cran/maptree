@@ -9,8 +9,8 @@
   ngon (xydc, n=4, angle=0, type=1)
 }
 \arguments{
-  \item{xydc}{four element vector with \code{x} and \code{y} 
-              coordinates of center, \code{d} diameter in mm, and 
+  \item{xydc}{four element vector with \code{x} and \code{y}
+              coordinates of center, \code{d} diameter in mm, and
               \code{c} color.}
   \item{n}{number of sides for polygon (>8 => circle).}
   \item{angle}{rotation angle of figure, in degrees.}
@@ -18,7 +18,7 @@
               \code{type=3} => both.}
 }
 \details{
-  Uses \code{\link{polygon}} to draw shaded polygons and 
+  Uses \code{\link{polygon}} to draw shaded polygons and
   \code{\link{lines}} for outline.  If n is odd, there is
   a vertex at (0, d/2), otherwise the midpoint of a side is
   at (0, d/2).

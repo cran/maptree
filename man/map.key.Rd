@@ -19,10 +19,10 @@
   \item{pch}{symbol number from \code{par("pch")} if < 100, otherwise
              parameter \code{n} for \code{\link{ngon}}.}
   \item{head}{text heading for key.}
-  \item{sep}{separation in mm between adjacent symbols in key.  
+  \item{sep}{separation in mm between adjacent symbols in key.
              If \code{sep=0}, assume a continuous scale, use square
              symbols, and put lables at breaks between squares.}
-  \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}}, 
+  \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
 }

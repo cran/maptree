@@ -3,7 +3,7 @@
 \title{Graph a Classification or Regression Tree}
 \description{
   Graph a classification or regression tree with a hierarchical
-  tree diagram, optionally including shaded square symbols at   
+  tree diagram, optionally including shaded square symbols at
   leaves and additional info at intermediate nodes.
 }
 \usage{
@@ -15,7 +15,7 @@
   \item{ps}{pointsize of text, par parameter.}
   \item{size}{if \code{size=0}, draw terminal symbol at leaves else a
               colored square with sides of length size in mm.}
-  \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}}, 
+  \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
   \item{nodeinfo}{if \code{TRUE}, add a line at each node with mean value
@@ -28,13 +28,15 @@
                 regression tree.}
 }
 \details{
-  Styled like \code{post.tree}.  As in \code{plot.tree(,,type="u")}, each  
-  level has constant depth.  Specifying \code{nodeinfo=TRUE}, shows the 
+  Styled like \code{post.tree}.  As in \code{plot.tree(,,type="u")}, each
+  level has constant depth.  Specifying \code{nodeinfo=TRUE}, shows the
   deviance explained or the classification rate at each node.
 }
 \value{The vector of colors supplied or generated.}
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
+  \code{\link[tree]{tree}}, 
+  \code{\link[tree]{prune.tree}}, 
   \code{\link{draw.clust}}, 
   \code{\link{map.groups}}
 }

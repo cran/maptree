@@ -17,8 +17,8 @@
 \value{Vector of rearranged \code{tree[["where"]]}} 
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
-  \code{\link{tree}}, 
-  \code{\link{rpart}}, 
+  \code{\link[tree]{tree}}, 
+  \code{\link[rpart]{rpart}}, 
   \code{\link{map.groups}}
 }
 \examples{
