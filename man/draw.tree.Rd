@@ -7,14 +7,14 @@
   leaves and additional info at intermediate nodes.
 }
 \usage{
-  draw.tree (tree, ps=par("ps"), size=10, col=NULL, 
+  draw.tree (tree, cex=par("cex"), size=2, col=NULL, 
       nodeinfo=FALSE, units="units", cases="obs", digits=0)
 }
 \arguments{
   \item{tree}{object of class \code{tree}.}
-  \item{ps}{pointsize of text, par parameter.}
+  \item{cex}{size of text, par parameter.}
   \item{size}{if \code{size=0}, draw terminal symbol at leaves else a
-              colored square with sides of length size in mm.}
+              colored square with sides of length size in cex units.}
   \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}

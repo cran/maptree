@@ -6,12 +6,12 @@
   or \code{hclust} using shaded square symbols at observations.
 }
 \usage{
-  draw.clust (cluster, ps=par("ps"), size=10, col=NULL)
+  draw.clust (cluster, cex=par("cex"), size=2, col=NULL)
 }
 \arguments{
   \item{cluster}{object of class \code{hclust} or \code{twins}.}
-  \item{ps}{pointsize of text, par parameter.}
-  \item{size}{size in mm of shaded square symbol.}
+  \item{cex}{size of text, par parameter.}
+  \item{size}{size in cex units of shaded square symbol.}
   \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}

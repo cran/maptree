@@ -7,7 +7,7 @@
   classification.
 }
 \usage{
-  map.groups (pts, group, pch=19, size=5, col=NULL, border=NULL)
+  map.groups (pts, group, pch=19, size=2, col=NULL, border=NULL)
 }
 \arguments{
   \item{pts}{matrix or data frame with components \code{"x"},
@@ -17,7 +17,7 @@
                in \code{col}.}
   \item{pch}{symbol number from \code{par("pch")} if < 100, otherwise
              parameter \code{n} for ngon.}
-  \item{size}{size in mm of shaded square symbol.}
+  \item{size}{size in cex units of shaded point symbol.}
   \item{col}{vector of fill colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
