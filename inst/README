@@ -1,5 +1,9 @@
 Changes in contributed package maptree:
 
+1.3-3, 6 March 2003
+
+* removed call to tree.depth in draw.tree (now causing failure)
+
 1.3-2, 22 April 2002
 
 * draw.tree now labels factor splits correctly for rpart objects

@@ -39,10 +39,6 @@
   if \code{pch < 100}, then \code{\link{points}} is used, otherwise
   \code{\link{ngon}}, to draw shaded polygon symbols for each
   observation in pts.
-
-  This graphic function maintains the aspect ratio of the input coordinates
-  in the output graphic by setting \code{par(pin=)}, thus the map does not
-  scale dynamically in an on-screen window.
 }
 \value{The vector of fill colors supplied or generated.}
 \author{Denis White, \email{white.denis@epa.gov} }

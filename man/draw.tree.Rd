@@ -59,7 +59,7 @@
   data (oregon.env.vars)
 
   draw.tree (prune.Rpart (rpart (oregon.env.vars), best=7), 
-      nodeinfo=TRUE, units="species", cases="cells")
+      nodeinfo=TRUE, units="species", cases="cells", digits=0)
 }
 \keyword{hplot}
 \keyword{tree}

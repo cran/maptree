@@ -34,7 +34,7 @@
   data (oregon.env.vars, oregon.border, oregon.grid)
 
   draw.tree (prune.Rpart (rpart (oregon.env.vars), best=7), 
-    nodeinfo=TRUE, units="species", cases="cells")
+    nodeinfo=TRUE, units="species", cases="cells", digits=0)
 
   group <- group.tree (prune.Rpart (rpart (oregon.env.vars), best=7))
   names(group) <- row.names(oregon.env.vars)

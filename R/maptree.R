@@ -166,7 +166,8 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
   tframe <- tree$frame
   rptree <- length (tframe$complexity) > 0
   node <- as.numeric(row.names(tframe))
-  depth <- tree.depth(node)
+  depth <- floor (log (node, base=2) + 1e-07)
+  depth <- as.vector (depth - min (depth))
   maxdepth <- max(depth)
   x <-  - depth
   y <- x
@@ -549,16 +550,14 @@ map.groups <- function (pts, group, pch=par("pch"), size=2,
     if (is.null (names (group)))
       stop ("map.groups: group has no names")
   if (new) plot.new ()
-  nna <- seq (nrow (pts))[!is.na (pts$y)]
-  dx <- diff (range (pts$x[nna]))
-  dy <- diff (range (pts$y[nna]))
-  px <- par ("pin")[1]
-  py <- par ("pin")[2]
-  if (dx/dy > px/py) py <- px * dy/dx else px <- py * dx/dy
-  par (pin = c(px, py))
+  nna <- which (! is.na (pts$y))
+  rx <- range (pts$x[nna])
+  ry <- range (pts$y[nna])
+  dx <- diff (rx)
+  dy <- diff (ry)
   ex <- 0.02
-  par (usr = c(range (pts$x[nna]) + c(-ex*dx,ex*dx), 
-               range (pts$y[nna]) + c(-ex*dy,ex*dy)))
+  plot.window (rx + c(-ex*dx,ex*dx), 
+               ry + c(-ex*dy,ex*dy), asp=1)
   dense <- sort (unique (group))
   nc <- length (dense)
   if (is.null(col)) fkol <- rainbow (nc)
