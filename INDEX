@@ -1,0 +1,14 @@
+draw.clust               Graph a Hierarchical Cluster Tree
+draw.tree                Graph a Classification or Regression Tree
+group.clust              Observation Groups for a Hierarchical Cluster
+                         Tree
+group.tree               Observation Groups for Classification or
+                         Regression Tree
+hex.env                  Environmental Variables for Oregon, USA
+hex.spp                  Presence/Absence of Bird Species in Oregon, USA
+map.groups               Map Groups of Observations
+map.key                  Draw Key to accompany Map of Groups
+ngon                     Outline or Fill a Regular Polygon
+oregon                   Boundary of Oregon, USA
+prune.clust              Prunes a Hierarchical Cluster Tree
+spp.names                Names of Bird Species in Oregon, USA
