@@ -3,34 +3,31 @@
 \title{Observation Groups for Classification or Regression Tree}
 \description{
   Alternative to \code{tree[["where"]]} that orders groups from left
-  to right in draw order, and adds group membership of
-  observations to pts matrix if provided.
+  to right in draw order.
 }
 \usage{
-  group.tree (tree, pts=NULL)
+  group.tree (tree)
 }
 \arguments{
-  \item{tree}{object of class \code{"tree"}.}
-  \item{pts}{vector, matrix, or data frame of length or nrow equal to 
-             \code{length(tree[["where"]])} to which group vector 
-             is joined with cbind.}
+  \item{tree}{object of class \code{tree} or \code{rpart}.}
 }
 \details{
   Normally used with \code{\link{map.groups}}.  See example.
 }
-\value{Vector of rearranged \code{tree[["where"]]} or the cbind of pts and
-       this vector if pts != NULL.}
+\value{Vector of rearranged \code{tree[["where"]]}} 
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
   \code{\link{tree}}, 
+  \code{\link{rpart}}, 
   \code{\link{map.groups}}
 }
 \examples{
   library (tree)
-  data (hex.env, oregon)
+  data (oregon.env.vars, oregon.grid)
 
-  map.groups (group.tree (prune.tree (tree (hex.env),
-      best=6), pts=hex.env), lns=oregon)
+  group <- group.tree (prune.tree (tree (oregon.env.vars), best=6))
+  names(group) <- row.names(oregon.env.vars)
+  map.groups (oregon.grid, group=group)
 }
 \keyword{manip}
 \keyword{tree}

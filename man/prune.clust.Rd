@@ -10,17 +10,17 @@
   prune.clust (cluster, k=NULL, h=NULL)
 }
 \arguments{
-  \item{cluster}{object of class \code{"hclust"} or \code{"twins"}.}
+  \item{cluster}{object of class \code{hclust} or \code{twins}.}
   \item{k}{desired number of groups.}
   \item{h}{height at which to prune for grouping.}
 
-  At least one of k or h must be specified; k takes precedence
-  if both are given.
+  At least one of \code{k} or \code{h} must be specified; \code{k} takes 
+  precedence if both are given.
 }
 \details{
   Used with \code{\link{draw.clust}}.  See example.
 }
-\value{Pruned cluster object of class \code{"hclust"}.}
+\value{Pruned cluster object of class \code{hclust}.}
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
   \code{\link{hclust}}, 
@@ -30,9 +30,9 @@
 }
 \examples{
   library (mva)
-  data (hex.spp)
+  data (oregon.bird.dist)
 
-  draw.clust (prune.clust (hclust (dist (hex.spp)), k=6))
+  draw.clust (prune.clust (hclust (dist (oregon.bird.dist)), k=6))
 }
 \keyword{manip}
 \keyword{cluster}

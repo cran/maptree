@@ -2,29 +2,24 @@
 \alias{group.clust}
 \title{Observation Groups for a Hierarchical Cluster Tree}
 \description{
-  Alternative to \code{\link{cutree}} that orders pruned groups from left to
-  right in draw order, and adds group membership of
-  observations to pts matrix if provided.
+  Alternative to \code{\link{cutree}} that orders pruned groups from 
+  left to right in draw order.
 }
 \usage{
-  group.clust (cluster, k=NULL, h=NULL, pts=NULL)
+  group.clust (cluster, k=NULL, h=NULL)
 }
 \arguments{
-  \item{cluster}{object of class \code{"hclust"} or \code{"twins"}.}
+  \item{cluster}{object of class \code{hclust} or \code{twins}.}
   \item{k}{desired number of groups.}
   \item{h}{height at which to prune for grouping.}
-  \item{pts}{vector, matrix, or data frame of length or nrow equal to
-             \code{length(cluster[["order"]])} to which group vector is 
-             joined with cbind.}
 
-  At least one of k or h must be specified; k takes precedence
-  if both are given.
+  At least one of \code{k} or \code{h} must be specified; \code{k} takes 
+  precedence if both are given.
 }
 \details{
   Normally used with \code{\link{map.groups}}.  See example.
 }
-\value{Vector of pruned cluster membership or the cbind of pts and
-       this vector if pts != NULL.}
+\value{Vector of pruned cluster membership} 
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
   \code{\link{hclust}}, 
@@ -34,10 +29,11 @@
 }
 \examples{
   library (mva)
-  data (hex.spp, hex.env, oregon)
+  data (oregon.bird.dist, oregon.grid)
 
-  map.groups (group.clust (hclust (dist (hex.spp)), k=6,
-      pts=hex.env), lns=oregon)
+  group <- group.clust (hclust (dist (oregon.bird.dist)), k=6)
+  names(group) <- row.names(oregon.bird.dist)
+  map.groups (oregon.grid, group)
 }
 \keyword{manip}
 \keyword{cluster}

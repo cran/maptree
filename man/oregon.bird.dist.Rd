@@ -1,15 +1,15 @@
-\name{hex.spp}
+\name{oregon.bird.dist}
 \alias{hex.spp}
 \title{Presence/Absence of Bird Species in Oregon, USA}
 \description{
   Binary matrix (1 = present) for distributions of 248 native
-  breeding bird species for 404 grid cells in Oregon, USA.
+  breeding bird species for 389 grid cells in Oregon, USA.
 }
-\usage{data (hex.spp)}
-\format{A matrix with 404 rows and 248 columns.}
+\usage{data (oregon.bird.dist)}
+\format{A data frame with 389 rows and 248 columns.}
 \details{
-  Row labels are hexagon identifiers from White et al. (1992).
-  Column labels are species element codes developed by 
+  Row names are hexagon identifiers from White et al. (1992).
+  Column names are species element codes developed by 
   The Nature Conservancy (TNC), 
   the Oregon Natural Heritage Program (ONHP), and
   the Association for Biodiversity Information (ABI).
@@ -33,17 +33,18 @@
   environmental monitoring, \emph{Cartography and Geographic 
   Information Systems}, \bold{19}(1), 5-22.
 
-  TNC, \url{http://www.tnc.org/}
+  TNC, \url{http://nature.org/}
 
-  ONHP, \url{http://www.heritage.tnc.org/nhp/us/or/}
+  ONHP, \url{http://www.abi.org/nhp/us/or/}
 
   ABI, \url{http://www.abi.org/}
 
-  TNC/ABI species data, \url{http://consci.tnc.org/src/overview.htm}
+  ABI species data, \url{http://www.abi.org/datasets_zoo/overview.htm}
 }
 \seealso{
-  \code{\link{hex.env}}, 
-  \code{\link{spp.names}}, 
-  \code{\link{oregon}}
+  \code{\link{oregon.env.vars}}, 
+  \code{\link{oregon.bird.names}}, 
+  \code{\link{oregon.grid}}, 
+  \code{\link{oregon.border}}
 }
 \keyword{datasets}

@@ -1,4 +1,5 @@
-hex.env                  Environmental Variables for Oregon, USA
-hex.spp                  Presence/Absence of Bird Species in Oregon, USA
-oregon                   Boundary of Oregon, USA
-spp.names                Names of Bird Species in Oregon, USA
+oregon.bird.dist         Presence/Absence of Bird Species in Oregon, USA
+oregon.bird.names        Names of Bird Species in Oregon, USA
+oregon.border            Boundary of Oregon, USA
+oregon.env.vars          Environmental Variables for Oregon, USA
+oregon.grid              Hexagonal Grid Cell Polygons covering Oregon, USA

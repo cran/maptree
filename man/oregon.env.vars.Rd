@@ -1,15 +1,15 @@
-\name{hex.env}
+\name{oregon.env.vars}
 \alias{hex.env}
 \title{Environmental Variables for Oregon, USA}
 \description{
-  Distributions of 10 environmental variables over 404 grid 
+  Distributions of 10 environmental variables for 389 grid 
   cells in Oregon, USA.
 }
-\usage{data (hex.env)}
-\format{A data frame with 404 rows and 10 columns.}
+\usage{data (oregon.env.vars)}
+\format{A data frame with 389 rows and 10 columns.}
 \details{
-  Row labels are hexagon identifiers from White et al. (1992).
-  Variables are 
+  Row names are hexagon identifiers from White et al. (1992).
+  Variables (columns) are 
 
   \tabular{ll}{
     bird.spp \tab number of native breeding bird species\cr
@@ -38,7 +38,8 @@
   Information Systems}, \bold{19}(1), 5-22.
 }
 \seealso{
-  \code{\link{hex.spp}}, 
-  \code{\link{oregon}}
+  \code{\link{oregon.bird.dist}}, 
+  \code{\link{oregon.grid}}, 
+  \code{\link{oregon.border}}
 }
 \keyword{datasets}
