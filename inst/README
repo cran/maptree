@@ -1,0 +1,32 @@
+Changes in contributed package maptree:
+
+1.3-1, 8 April 2002
+
+* new function kgs computes penalty measure for cluster trees.
+
+* draw.clust, draw.tree, and map.groups now have argument new (default
+  TRUE) to accomodate multiple figure plots (when new=FALSE).
+
+* map.groups now maps group identifiers to dense integers for 
+  referencing color numbers.
+
+* prune.clust now returns correct components on pruned clusters, 
+  plus new component "size" having number of observations included 
+  in each pruned leaf.
+
+* draw.clust has new argument nodeinfo, which if TRUE causes the 
+  number of observations included in each leaf to be displayed 
+  (for pruned clusters).
+
+* map.key argument "lables" changed in spelling to "labels".
+
+1.2-1, 15 March 2002
+
+* draw.clust, draw.tree, map.key, and map.groups now use cex for 
+  sizing text and symbols.
+
+* prune.Rpart uses best argument as advertised.  Thanks to Brian 
+  Ripley for identification of problem and suggestion of solution.
+
+* draw.tree now correctly displays response level for classification 
+  trees.

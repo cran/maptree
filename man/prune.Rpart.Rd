@@ -33,15 +33,15 @@
   library (rpart)
   data (oregon.env.vars, oregon.border, oregon.grid)
 
-  draw.tree (prune.Rpart (rpart (oregon.env.vars), best=6), 
+  draw.tree (prune.Rpart (rpart (oregon.env.vars), best=7), 
     nodeinfo=TRUE, units="species", cases="cells")
 
-  group <- group.tree (prune.Rpart (rpart (oregon.env.vars), best=6))
+  group <- group.tree (prune.Rpart (rpart (oregon.env.vars), best=7))
   names(group) <- row.names(oregon.env.vars)
   map.groups (oregon.grid, group)
   lines (oregon.border)
-  map.key (0.05, 0.65, lables=as.character(seq(6)), 
-    size=4, new=FALSE, sep=1, pch=19, head="node")
+  map.key (0.05, 0.65, labels=as.character(seq(6)), 
+    size=1, new=FALSE, sep=0.5, pch=19, head="node")
 }
 \keyword{manip}
 \keyword{cluster}

@@ -5,26 +5,26 @@
   Draws legends for maps of groups of observations.
 }
 \usage{
-  map.key (x, y, lables=NULL, new=FALSE,  size=2, 
-      cex=par("cex"), pch=19, head="", sep=0.2, col=NULL)
+  map.key (x, y, labels=NULL, cex=par("cex"), pch=par("pch"),
+      size=2.5*cex, col=NULL, head="", sep=0.25*cex, new=FALSE)
 }
 \arguments{
   \item{x, y}{coordinates of lower left position of key
               in proportional units (0-1) of plot.}
-  \item{lables}{vector of labels for classes, or if \code{NULL},
+  \item{labels}{vector of labels for classes, or if \code{NULL},
                 then integers \code{1:length(col)}, or \code{1}.}
-  \item{new}{if \code{TRUE}, call \code{\link{plot}}.}
   \item{size}{size in cex units of shaded key symbol.}
-  \item{cex}{pointsize of text, \code{par} parameter.}
   \item{pch}{symbol number from \code{par("pch")} if < 100, otherwise
              parameter \code{n} for \code{\link{ngon}}.}
+  \item{cex}{pointsize of text, \code{par} parameter.}
   \item{head}{text heading for key.}
   \item{sep}{separation in cex units between adjacent symbols in key.
              If \code{sep=0}, assume a continuous scale, use square
-             symbols, and put lables at breaks between squares.}
+             symbols, and put labels at breaks between squares.}
   \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
+  \item{new}{if \code{TRUE}, call \code{\link{plot}}.}
 }
 \details{
   Uses \code{\link{points}} or \code{\link{ngon}}, depending on value of
@@ -41,16 +41,16 @@
 
   # key for examples in help(map.groups)
   # range map for American Avocet
-  map.key (0.2, 0.2, lables=c("absent","present"), 
-    col="gray", new=TRUE, pch=106, head="key")
+  map.key (0.2, 0.2, labels=c("absent","present"), pch=106, 
+    col="gray", head="key", new=TRUE)
   # distribution of January temperatures
   cuts <- quantile (oregon.env.vars[["jan.temp"]], probs=seq(0,1,1/5))
-  map.key (0.2, 0.2, lables=as.character(round(cuts,0)), 
-    col="gray", new=TRUE, sep=0, pch=106, head="key")
+  map.key (0.2, 0.2, labels=as.character(round(cuts,0)), 
+    col="gray", sep=0, head="key", new=TRUE)
 
   # key for example in \code{help(group.tree)}
-  map.key (0.2, 0.2, lables=as.character(seq(6)), 
-    new=TRUE, pch=15, head="node")
+  map.key (0.2, 0.2, labels=as.character(seq(6)), 
+    pch=19, head="node", new=TRUE)
 }
 \keyword{hplot}
 \keyword{aplot}

@@ -12,7 +12,7 @@
   Column names are species element codes developed by
   The Nature Conservancy (TNC),
   the Oregon Natural Heritage Program (ONHP), and
-  the Association for Biodiversity Information (ABI).
+  NatureServe.
 }
 \source{Denis White, \email{white.denis@epa.gov} }
 \references{
@@ -35,11 +35,9 @@
 
   TNC, \url{http://nature.org/}
 
-  ONHP, \url{http://www.abi.org/nhp/us/or/}
+  ONHP, \url{http://natureserve.org/nhp/us/or/}
 
-  ABI, \url{http://www.abi.org/}
-
-  ABI species data, \url{http://www.abi.org/datasets_zoo/overview.htm}
+  NatureServe, \url{http://natureserve.org/}
 }
 \seealso{
   \code{\link{oregon.env.vars}}, 

@@ -29,10 +29,10 @@
   \code{\link{draw.clust}}
 }
 \examples{
-  library (mva)
+  library (cluster)
   data (oregon.bird.dist)
 
-  draw.clust (prune.clust (hclust (dist (oregon.bird.dist)), k=6))
+  draw.clust (prune.clust (agnes (oregon.bird.dist), k=6))
 }
 \keyword{manip}
 \keyword{cluster}

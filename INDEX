@@ -4,6 +4,7 @@ group.clust              Observation Groups for a Hierarchical Cluster
                          Tree
 group.tree               Observation Groups for Classification or
                          Regression Tree
+kgs                      KGS Measure for Pruning Hierarchical Clusters
 map.groups               Map Groups of Observations
 map.key                  Draw Key to accompany Map of Groups
 ngon                     Outline or Fill a Regular Polygon

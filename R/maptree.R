@@ -1,27 +1,32 @@
 # maptree package
 #   for graphing and mapping of hierarchical clustering and
 #   regression trees
-# denis white, us epa, 15 March 2002, version 1.2-1
+# denis white, us epa, 8 April 2002, version 1.3-1
 #
 # function calls
 #
 ############################################################
 #
-# draw.clust <- function (cluster, cex=par("cex"), size=2, 
-#     col=NULL)
+# draw.clust <- function (cluster, cex=par("cex"), 
+#     pch=par("pch"), size=2.5*cex, col=NULL, nodeinfo=FALSE, 
+#     cases="obs", new=TRUE)
 #
-# draw.tree <- function (tree, cex=par("cex"), size=2, col=NULL, 
-#     nodeinfo=FALSE, units="units", cases="obs", digits=0 )
+# draw.tree <- function (tree, cex=par("cex"), pch=par("pch"), 
+#     size=2.5*cex, col=NULL, nodeinfo=FALSE, units="",  
+#     cases="obs", digits=0, new=TRUE)
 #
 # group.clust <- function (cluster, k=NULL, h=NULL)
 #
 # group.tree <- function (tree)
 #
-# map.groups <- function (pts, group, pch=19, size=2, col=NULL,
-#     border=NULL)
+# kgs <- function (cluster, diss, maxclust=NULL)
 #
-# map.key <- function (x, y, lables=NULL, new=FALSE, size=2, 
-#     cex=par("cex"), pch=19, head="", sep=0.2, col=NULL)
+# map.groups <- function (pts, group, pch=par("pch"), size=2, 
+#     col=NULL, border=NULL, new=TRUE)
+#
+# map.key <- function (x, y, labels=NULL, cex=par("cex"), 
+#    par=par("pch"), size=2.5*cex, col=NULL, head="", 
+#    sep=0.25*cex, new=FALSE)
 #
 # ngon <- function (xydc, n=4, angle=0, type=1)
 #
@@ -31,14 +36,19 @@
 
 ############################################################
 
-draw.clust <- function (cluster, cex=par("cex"), size=2, 
-  col=NULL)
+draw.clust <- function (cluster, cex=par("cex"), 
+  pch=par("pch"), size=2.5*cex, col=NULL, nodeinfo=FALSE, 
+  cases="obs", new=TRUE)
   # cluster is class hclust or twins
   # cex is par parameter, size of text
-  # size is length of a side of a colored square in cex  
-  #   units drawn at the observations
+  # pch is par parameter, shape of symbol at leaves of tree
+  # size is in cex units for symbol at leaves of tree
   # if col is NULL, use rainbow(),
   #   else if col="gray" or "grey", use gray()
+  # if nodeinfo=TRUE, add a line at each leaf with number
+  #   of observations included in leaf
+  # cases are names for cluster objects
+  # if new=TRUE, call plot.new()
   # returned value is col or generated colors
 {
   if (class (cluster) == "hclust") clust <- cluster
@@ -48,6 +58,7 @@ draw.clust <- function (cluster, cex=par("cex"), size=2,
   merg <- clust$merge
   nmerg <- nrow (merg)
   if (nmerg<2) stop ("draw: < 3 clusters")
+  if (new) plot.new ()
   hite <- clust$height
   cord <- order (clust$order)
   xmax <- nrow (merg) + 1
@@ -55,14 +66,13 @@ draw.clust <- function (cluster, cex=par("cex"), size=2,
   pinx <- par ("pin")[1]
   piny <- par ("pin")[2]
   xmin <- 1
-  chr <- par("cin")[2] * cex
-  box <- size * chr
+  box <- size * par("cin")[1]
   xscale <- (xmax-xmin)/pinx
   xbh <- xscale * box / 2
-  tail <- 0.25
+  tail <- 0.2
   yscale <- ymax/(piny - tail)
-  ytail <- yscale*tail
-  ybx <- yscale*box
+  ytail <- yscale * tail
+  ybx <- yscale * box
   ymin <- - ytail
   xf <- 0.1 * (xmax-xmin)
   yf <- 0.1 * (ymax-ymin)
@@ -70,9 +80,7 @@ draw.clust <- function (cluster, cex=par("cex"), size=2,
   x2 <- xmax + xf
   y1 <- ymin - yf
   y2 <- ymax + yf
-  plot (c(x1,x2),c(y1,y2),type="n",axes=FALSE,xlab="",ylab="")
-  oldcex <- par ("cex")
-  par (cex=cex)
+  par (usr=c(x1, x2, (y1-nodeinfo*ybx), y2))
   if (is.null(col)) kol <- rainbow (xmax)
   else if (col=="gray" | col=="grey") kol <- 
     gray (seq (0.8, 0.2, length=xmax))
@@ -101,10 +109,12 @@ draw.clust <- function (cluster, cex=par("cex"), size=2,
     else {
       x1 <- cord[-a]
       y1a <- y2 - ytail
-      px <- c(x1-xbh, x1+xbh, x1+xbh, x1-xbh, x1-xbh)
-      py <- c(y1a-ybx, y1a-ybx, y1a, y1a, y1a-ybx)
-      polygon (px, py, col=kol[x1], border=0)
-      text.default (x1, y1a-(ybx/2), as.character(-a))
+      points (x1, y1a-ybx/2, pch=pch, cex=size, col=kol[x1])
+      text.default (x1, y1a-(ybx/2), as.character(-a), cex=cex)
+      if (nodeinfo) {
+        string <- paste (as.character (clust$size[-a]), cases)
+        text.default (x1, y1a-1.3*ybx, string, cex=cex)
+        }
       }
     if (b > 0) {
       x2 <- xmean[b]
@@ -113,39 +123,42 @@ draw.clust <- function (cluster, cex=par("cex"), size=2,
     else {
       x2 <- cord[-b]
       y1b <- y2 - ytail
-      px <- c(x2-xbh, x2+xbh, x2+xbh, x2-xbh, x2-xbh)
-      py <- c(y1b-ybx, y1b-ybx, y1b, y1b, y1b-ybx)
-      polygon (px, py, col=kol[x2], border=0)
-      text.default (x2, y1b-(ybx/2), as.character(-b))
+      points (x2, y1b-ybx/2, pch=pch, cex=size, col=kol[x2])
+      text.default (x2, y1b-(ybx/2), as.character(-b), cex=cex)
+      if (nodeinfo) {
+        string <- paste (as.character (clust$size[-b]), cases)
+        text.default (x2, y1b-1.3*ybx, string, cex=cex)
+        }
       }
     lines (c(x1,x2),c(y2,y2))
     lines (c(x1,x1),c(y1a,y2))
     lines (c(x2,x2),c(y1b,y2))
     }
-  par (cex=oldcex)
   invisible (kol)
 }
 
 ############################################################
 
-draw.tree <- function (tree, cex=par("cex"), size=2, 
-  col=NULL, nodeinfo=FALSE, units="units", cases="obs", 
-  digits=0 )
+draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
+  size=2.5*cex, col=NULL, nodeinfo=FALSE, units="", 
+  cases="obs", digits=0, new=TRUE)
   # tree is object of class tree
   # cex is par parameter, size of text
+  # pch is par parameter, shape of symbol at leaves of tree
   # if size=0, draw terminal symbol at leaves 
-  #   else a colored square with sides of length size
-  #   in cex units
+  #   else symbol with size in cex units
   # if col is NULL, use rainbow(),
   #   else if col="gray" or "grey", use gray()
   # if nodeinfo=TRUE, add a line at each node with mean value
   #   of response, number of observations, and percent
   #   deviance explained (or classified correct)
   # units are for mean value of response (if regression tree)
-  # cases are for observations
+  # cases are names for observations
   # digits are rounding for response
+  # if new=TRUE, call plot.new()
   # returned value is col or generated colors
 {
+  if (new) plot.new ()
   rtree <- length (attr (tree, "ylevels")) == 0
   tframe <- tree$frame
   rptree <- length (tframe$complexity) > 0
@@ -203,8 +216,6 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
   else if (col=="gray" | col=="grey") kol <- 
     gray (seq(0.8,0.2,length=nleaves))
   else kol <- col
-  oldcex <- par ("cex")
-  par (cex=cex)
   xmax <- max(x)
   xmin <- min(x)
   ymax <- max(y)
@@ -212,10 +223,10 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
   pinx <- par ("pin")[1]
   piny <- par ("pin")[2]
   xscale <- (xmax - xmin)/pinx
-  chr <- par("cin")[2] * cex
-  box <- size * chr
+  box <- size * par("cin")[1]
   if (box == 0) xbh <- xscale * 0.2
   else xbh <- xscale * box/2
+  chr <- cex * par("cin")[2]
   tail <- box + chr
   yscale <- (ymax - ymin)/(piny - tail)
   ytail <- yscale * tail
@@ -229,7 +240,7 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
   x2 <- xmax + xf
   y1 <- ymin - yf
   y2 <- ymax + yf
-  plot (c(x1,x2),c(y1,y2),type="n",axes=FALSE,xlab="",ylab="")
+  par (usr=c(x1,x2,y1,y2))
   if (rptree) {
     v <- tframe$var[1]
     n <- tframe$n[1]
@@ -238,7 +249,7 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
     }
   else val <- substring(as.character(tframe$splits[1,1]),2)
   string <- paste (as.character(tframe$var[1]), "<>", val)
-  text.default (x[1], y[1], string)
+  text.default (x[1], y[1], string, cex=cex)
   if (nodeinfo) {
     n <- tframe$n[1]
     if (rtree) {
@@ -253,15 +264,20 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
       string <- paste (z,"; ",n," ",cases,"; ",r,"%",
         sep="")
       }
-    text.default (x[1], y[1]-ychr, string)
+    text.default (x[1], y[1]-ychr, string, cex=cex)
     }
   for (i in 2:nnodes) {
     ytop <- ychr * (as.integer(nodeinfo)+1)
-    if (y[i] < y[i-1])
-      lines(c(x[i-1], x[i]), c(y[i-1]-ytop, y[i]+ychr))
-    else
-      lines(c(x[parent[i]], x[i]), 
-        c(y[parent[i]]-ytop, y[i]+ychr))
+    if (y[i] < y[i-1]) {
+      lines(c(x[i-1], x[i]), c(y[i-1]-ytop, y[i-1]-ytop))
+      lines(c(x[i], x[i]), c(y[i-1]-ytop, y[i]+ychr))
+      }
+    else {
+      lines(c(x[parent[i]], x[i]), c(y[parent[i]]-ytop, 
+        y[parent[i]]-ytop))
+      lines(c(x[i], x[i]), c(y[parent[i]]-ytop, 
+        y[i]+ychr))
+      }
     if(! leaves[i]) {
       if (rptree) {
         v <- tframe$var[i]
@@ -272,7 +288,7 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
         }
       else val <- substring(as.character(tframe$splits[i,1]),2)
       string <- paste (as.character(tframe$var[i]), "<>", val)
-      text.default (x[i], y[i], string)
+      text.default (x[i], y[i], string, cex=cex)
       if (nodeinfo) {
         n <- tframe$n[i]
         if (rtree) {
@@ -287,7 +303,7 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
           string <- paste (z,"; ",n," ",cases,"; ",r,"%",
             sep="")
           }
-        text.default (x[i], y[i]-ychr, string)
+        text.default (x[i], y[i]-ychr, string, cex=cex)
         }
       }
     else {
@@ -296,38 +312,29 @@ draw.tree <- function (tree, cex=par("cex"), size=2,
         lines (c(x[i]-xbh, x[i]+xbh), c(y[i], y[i]))
         }
       else {
-        x1 <- x[i] - xbh
-        x2 <- x[i] + xbh
-        y1 <- y[i] - ybx + ychr
-        y2 <- y[i] + ychr
-        polygon(c(x1, x2, x2, x1, x1), c(y1, y1, y2, y2, y1), 
-          col = kol[x[i]], border=0)
-        # lines (c(x1, x2, x2, x1, x1), c(y1, y1, y2, y2, y1))
+        points (x[i], y[i], pch=pch, cex=size, col=kol[x[i]])
         }
       if (rtree) {
         z <- round(tframe$yval[i], digits)
-        text.default(x[i], y[i]-ybx, paste(z,units,sep=" "))
+        text.default(x[i], y[i]-ybx, paste(z,units,sep=" "), cex=cex)
         }
       else {
         z <- attr (tree, "ylevels")[tframe$yval[i]]
-        text.default(x[i], y[i]-ybx, z)
+        text.default(x[i], y[i]-ybx, z, cex=cex)
         }
       n <- tframe$n[i]
-      text.default(x[i], y[i]-ybx-ychr, paste(n,cases,sep=" "))
+      text.default(x[i], y[i]-ybx-ychr, paste(n,cases,sep=" "), cex=cex)
       if (box != 0)
-        text.default (x[i], y[i], as.character(x[i]))
+        text.default (x[i], y[i], as.character(x[i]), cex=cex)
       }
     }
   if (nodeinfo) {
     if (rtree) string <- paste("Total deviance explained =",
       sum(pcor),"%")
     else string <- paste("Total classified correct =",trate,"%")
-    par (cex=1.2*cex)
-    if (box == 0) text.default (mean(x),ymin-3*ychr,string)
-    else text.default (mean(x),ymin-ybx,string)
+    if (box == 0) text.default (mean(x),ymin-3*ychr,string,cex=1.2*cex)
+    else text.default (mean(x),ymin-1.2*ybx,string,cex=1.2*cex)
     }
-  par (cex=oldcex)
-  invisible (kol)
 }
 
 ############################################################
@@ -408,8 +415,65 @@ group.tree <- function (tree)
 
 ############################################################
 
-map.groups <- function (pts, group, pch=19, size=2, col=NULL,
-  border=NULL)
+kgs <- function (cluster, diss, maxclust=NULL)
+  # cluster is class hclust or twins
+  # diss is class dist or dissimilarity
+  # maxclust is maximum number of clusters to compute for;
+  #   if NULL, use n-1
+  # needs {maptree} and {combinat}
+  # ref: Kelley LA, Gardner SP, Sutcliffe MJ. 1996. An
+  #   automated approach for clustering an ensemble of
+  #   NMR-derived protein structures into conformationally-
+  #   reated subfamilies. Protein Engineering 9:1063-1065.
+{
+    spread <- function (mem, diss)
+    {
+      if (length (mem) > 2) comb <- combn (mem, 2)
+      else comb <- matrix (mem, nrow=2, ncol=1)
+      n <- ceiling (sqrt (2 * length (diss)))
+      sp <- 0
+      for (k in seq (ncol (comb))) {
+        i <- comb[1, k]
+        j <- comb[2, k]
+        sp <- sp + diss[n*(i-1) - i*(i-1)/2 + j-i]
+      }
+      sp <- sp * 2 / (n * (n-1))
+      sp
+    }
+  if (class(cluster) == "hclust") clust <- cluster
+  else if (inherits(cluster,"twins"))
+    clust <- as.hclust (cluster)
+  else
+    stop("kgs: input not hclust or twins")
+  if (class (diss) != "dist" && 
+      class (diss) != "dissimilarity") 
+    stop ("kgs: input not dist or dissimilarity")
+  n <- length (clust$order)
+  if (is.null (maxclust) || maxclust > (n-1)) m <- n - 1
+  else m <- maxclust
+  avsp <- rep (0, m-1)
+  for (i in 2:m) {
+    gl <- group.clust (clust, k=i)
+    sz <- table (gl)
+    nsp <- sp <- 0
+    for (j in seq (i)) {
+      if (sz[j] > 1) {
+        mem <- seq (n)[gl == j]
+        sp <- sp + spread (mem, diss)
+        nsp <- nsp + 1
+    } }
+    avsp[i-1] <- sp / nsp
+  }
+  avsp <- (m-1)*(avsp - min(avsp))/diff (range (avsp)) + 1
+  kgs <- avsp + 2:m
+  names (kgs) <- as.character (2:m)
+  kgs
+}
+
+############################################################
+
+map.groups <- function (pts, group, pch=par("pch"), size=2, 
+  col=NULL, border=NULL, new=TRUE)
   # pts must have components "x" and "y";
   # group is vector of length of number of cases (either
   #   polygons or points) and indexes colors;
@@ -418,11 +482,13 @@ map.groups <- function (pts, group, pch=19, size=2, col=NULL,
   # if nrow(pts) != length(group) then map with polygon, 
   #   else if pch < 100 map with points, 
   #   else map with ngon (..., n=pch-100)
-  # size is in cex units, only for point symbol
+  # pch is par parameter, shape of point symbol
+  # size is in cex units of point symbol
   # if col is NULL, use rainbow(),
   #   else if col="gray" or "grey", use gray()
   # if border is NULL, use fill colors (col),
   #   else the specified color(s)
+  # if new=TRUE, call plot.new()
 {
   n <- colnames (pts)
   if (! any (n == "x"))
@@ -432,70 +498,75 @@ map.groups <- function (pts, group, pch=19, size=2, col=NULL,
   if (nrow(pts) != length(group)) 
     if (is.null (names (group)))
       stop ("map.groups: group has no names")
+  if (new) plot.new ()
   nna <- seq (nrow (pts))[!is.na (pts$y)]
   dx <- diff (range (pts$x[nna]))
   dy <- diff (range (pts$y[nna]))
-  px <- par("pin")[1]
-  py <- par("pin")[2]
+  px <- par ("pin")[1]
+  py <- par ("pin")[2]
   if (dx/dy > px/py) py <- px * dy/dx else px <- py * dx/dy
-  par(pin = c(px, py))
-  plot ( range (pts$x[nna]), range (pts$y[nna]), type="n",
-    axes=FALSE, xlab="", ylab="")
-  ncol <- length (unique (group))
-  if (is.null(col)) fkol <- rainbow (ncol)
+  par (pin = c(px, py))
+  ex <- 0.02
+  par (usr = c(range (pts$x[nna]) + c(-ex*dx,ex*dx), 
+               range (pts$y[nna]) + c(-ex*dy,ex*dy)))
+  dense <- sort (unique (group))
+  nc <- length (dense)
+  if (is.null(col)) fkol <- rainbow (nc)
   else if (col=="gray" | col=="grey") fkol <- 
-    gray (seq (0.8, 0.2, length=ncol))
-  else fkol <- rep (col, ncol)
+    gray (seq (0.8, 0.2, length=nc))
+  else fkol <- rep (col, nc)
   if (is.null(border)) bkol <- fkol
-  else bkol <- rep (border, ncol)
+  else bkol <- rep (border, nc)
   if (nrow (pts) != length (group)) {
     i <- pts$x[is.na (pts$y)]
     j <- match (i, as.integer (names (group)))
     polygon (pts$x, pts$y, lwd=0.1,
-      col=fkol[group[j]], border=bkol[group[j]])
+      col=fkol[match (group[j], dense)], 
+      border=bkol[match (group[j], dense)])
     }
   else if (pch < 100 | mode(pch) == "character") points (pts$x, 
-    pts$y, col=fkol[group], pch=pch, cex=size*1.5)
+    pts$y, col=fkol[match (group, dense)], pch=pch, cex=size*1.5)
   else apply (data.frame (x=pts$x, y=pts$y, 
-    d=size*25.4*par("cex")*par("cin")[1], c=I(fkol[group])),
+    d=size*25.4*par("cex")*par("cin")[1], 
+    c=I(fkol[match (group, dense)])), 
     1, ngon, n=pch-100, type=1)
   invisible (fkol)
 }
 
 ############################################################
 
-map.key <- function (x, y, lables=NULL, new=FALSE, size=2,
-  cex=par("cex"), pch=19, head="", sep=0.2, col=NULL)
+map.key <- function (x, y, labels=NULL, cex=par("cex"), 
+  pch=par("pch"), size=2.5*cex, col=NULL, head="", 
+  sep=0.25*cex, new=FALSE)
   # x,y are lower left coordinates of key 
   #   in proportional units (0-1)
-  # lables is vector of labels for classes, or if NULL,
+  # labels is vector of labels for classes, or if NULL,
   #   then integers 1:length(col), or "1"
-  # if new=TRUE, call plot
-  # size is (diameter) of polygon symbol in cex units
   # cex is par parameter, size of text
   # if pch < 100, use points for symbol, 
   #   else ngon (..., n=pch-100)
+  # size is in cex units for key symbols
+  # if col is NULL, use rainbow(),
+  #   else if col="gray" or "grey", use gray()
+  # cex is par parameter, size of text
   # head is text heading for key
   # sep is separation in cex units between adjacent symbols
   #   if sep=0 assume continuous scale and use gon=4
   #   and put lables at breaks between squares
-  # if col is NULL, use rainbow(),
-  #   else if col="gray" or "grey", use gray()
+  # if new=TRUE, call plot
   # returned value is col or generated colors
 {
-  if (is.null(lables))
-    if (is.null(col)) lables <- as.vector("1")
-    else lables <- as.character(seq(length(col)-1))
-  nsym <- length(lables)
+  if (is.null (labels))
+    if (is.null (col)) labels <- as.vector ("1")
+    else labels <- as.character (seq (length (col) - 1))
+  nsym <- length (labels)
   if (sep == 0) nsym <- nsym - 1
-  if (is.null(col)) kol <- rainbow (nsym)
+  if (is.null (col)) kol <- rainbow (nsym)
   else if (col=="gray" | col=="grey") kol <- 
-    gray (seq(0.8,0.2,length=nsym))
+    gray (seq(0.8, 0.2, length=nsym))
   else kol <- col
   if (new)
-    plot(c(0,1),c(0,1),type="n",axes=FALSE,xlab="",ylab="")
-  oldcex <- par("cex")
-  par (cex=cex)
+    plot(c(0,1), c(0,1), type="n", axes=FALSE, xlab="", ylab="")
   oldadj <- par ("adj")
   par (adj=0)
   u <- par ("usr")
@@ -503,9 +574,9 @@ map.key <- function (x, y, lables=NULL, new=FALSE, size=2,
   ey <- par ("pin")[2]
   uxr <- u[2] - u[1]
   uyr <- u[4] - u[3]
-  halfx <- (size * cex * par("cin")[1]) / 2
+  halfx <- (size * par("cin")[1]) / 3
   xstep <- halfx + 0.05
-  ystep <- (size + sep) * cex * par("cin")[1]
+  ystep <- (size + sep) * par("cin")[2] / 2.5
   px <- x * uxr + u[1]
   py <- y * uyr + u[3]
   hx <- halfx * uxr / ex
@@ -516,27 +587,25 @@ map.key <- function (x, y, lables=NULL, new=FALSE, size=2,
   if (sep == 0) {
     for (i in 1:nsym) {
       qy <- qy + dy
-      ngon (c(qx, qy, size=size*25.4*cex*par("cin")[1], col=kol[i]), 
-        n=4, type=3)
-      text (qx+dx, qy - dy/2, lables[i]) }
-    text (qx+dx, qy + dy/2, lables[nsym+1])
+      points (qx, qy, pch=15, cex=size*1.1, col=kol[i])
+      text (qx+dx, qy - dy/2, labels[i], cex=cex) }
+    text (qx+dx, qy + dy/2, labels[nsym+1], cex=cex)
     }
   else
     for (i in 1:nsym) {
       qy <- qy + dy
       if (pch < 100  | mode(pch) == "character") points (qx,
-        qy, col=kol[i], pch=pch, cex=size*1.5)
-      else ngon (c(qx, qy, size=size*25.4*cex*par("cin")[1], col=kol[i]), 
+        qy, col=kol[i], pch=pch, cex=size)
+      else ngon (c(qx, qy, size=15*size*par("cin")[1], col=kol[i]), 
         n=pch-100, type=1)
-      text (qx+dx, qy, lables[i]) }
+      text (qx+dx, qy, labels[i], cex=cex) }
   if (length(head)>0)
     {
     qy <- qy + (dy * length (grep ("$", head)))
-    #qy <- qy + 0.2 * dy
     if (sep == 0) qy <- qy + 0.5 * dy
-    text (qx-hx, qy, head)
+    text (qx-hx, qy, head, cex=cex)
     }
-  par (cex=oldcex, adj=oldadj)
+  par (adj=oldadj)
   invisible (kol)
 }
 
@@ -611,16 +680,16 @@ prune.clust <- function (cluster, k=NULL, h=NULL)
   # returns pruned cluster
 {
   if (is.null(h) && is.null(k))
-    stop ("prune: both h=NULL,k=NULL")
+    stop ("prune.clust: both h=NULL,k=NULL")
   if (!is.null(h) && h>max(cluster$height)) 
-    stop("prune: h>max(height)")
+    stop("prune.clust: h>max(height)")
   if (!is.null(k) && (k==1 || k>length(cluster$height)))
-    stop("prune: k==1 || k=>nobs")
+    stop("prune.clust: k==1 || k=>nobs")
   if (class(cluster) == "hclust") clust <- cluster
   else if (inherits(cluster,"twins"))
     clust <- as.hclust (cluster)
   else
-    stop("prune: input not hclust or twins")
+    stop("prune.clust: input not hclust or twins")
   merg <- clust$merge
   hite <- clust$height
   nmerg <- nrow(merg)
@@ -658,15 +727,9 @@ prune.clust <- function (cluster, k=NULL, h=NULL)
   nuhite <- as.double(nuhite - min(nuhite))
   nuordr <- as.double(seq(nrow(numerg)+1))
   nulabl <- as.character(nuordr)
-  l <- list()
-  l[[1]] <- numerg
-  l[[2]] <- nuhite
-  l[[3]] <- nuordr
-  l[[4]] <- nulabl
-  l[[5]] <- clust$method
-  l[[6]] <- clust$call
-  l[[7]] <- clust$dist.method
-  names(l) <- names(clust)
+  l <- list(merge=numerg, height=nuhite, order=nuordr, labels=nulabl,
+    method=clust$method, call=clust$call, dist.method=clust$dist.method,
+    size=table (group.clust (clust, k, h)))
   class(l) <- class(clust)
   l
 }

@@ -7,7 +7,8 @@
   classification.
 }
 \usage{
-  map.groups (pts, group, pch=19, size=2, col=NULL, border=NULL)
+  map.groups (pts, group, pch=par("pch"), size=2, col=NULL, 
+      border=NULL, new=TRUE)
 }
 \arguments{
   \item{pts}{matrix or data frame with components \code{"x"},
@@ -17,7 +18,7 @@
                in \code{col}.}
   \item{pch}{symbol number from \code{par("pch")} if < 100, otherwise
              parameter \code{n} for ngon.}
-  \item{size}{size in cex units of shaded point symbol.}
+  \item{size}{size in cex units of point symbol.}
   \item{col}{vector of fill colors from \code{\link{hsv}}, \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
@@ -25,13 +26,15 @@
              \code{\link{rgb}},
              etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
              if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
+  \item{new}{if \code{TRUE}, call \code{\link{plot.new}}.}
 }
 \details{
   If the number of rows of \code{pts} is not equal to the length
   of \code{group}, then (1) \code{pts} are assumed to represent
-  polygons and \code{\link{polygon}} is used, and (2) the fill and
-  border colors indexed by \code{group} are matched to the polygons
-  in \code{pts} through \code{names(group)} and \code{pts$x[is.na(pts$y)]}.
+  polygons and \code{\link{polygon}} is used, (2) the identifiers in 
+  \code{group} are matched to the polygons in \code{pts} through 
+  \code{names(group)} and \code{pts$x[is.na(pts$y)]}, and (3) these
+  identifiers are mapped to dense integers to reference colours.
   Otherwise, \code{group} is assumed to parallel \code{pts}, and,
   if \code{pch < 100}, then \code{\link{points}} is used, otherwise
   \code{\link{ngon}}, to draw shaded polygon symbols for each
@@ -70,7 +73,7 @@
   lines (oregon.border)
 
   # January temperatures using point symbols rather than polygons
-  map.groups (oregon.env.vars, group, col="gray")
+  map.groups (oregon.env.vars, group, pch=19, col="gray")
   lines (oregon.border)
 }
 \keyword{hplot}

@@ -9,7 +9,7 @@
   group.tree (tree)
 }
 \arguments{
-  \item{tree}{object of class \code{tree} or \code{rpart}.}
+  \item{tree}{object of class \code{rpart} or \code{tree}.}
 }
 \details{
   Normally used with \code{\link{map.groups}}.  See example.
@@ -17,15 +17,15 @@
 \value{Vector of rearranged \code{tree[["where"]]}} 
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
-  \code{\link[tree]{tree}}, 
   \code{\link[rpart]{rpart}}, 
+  \code{\link[tree]{tree}}, 
   \code{\link{map.groups}}
 }
 \examples{
-  library (tree)
+  library (rpart)
   data (oregon.env.vars, oregon.grid)
 
-  group <- group.tree (prune.tree (tree (oregon.env.vars), best=6))
+  group <- group.tree (prune.Rpart (rpart (oregon.env.vars), best=7))
   names(group) <- row.names(oregon.env.vars)
   map.groups (oregon.grid, group=group)
 }
