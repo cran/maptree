@@ -3,12 +3,13 @@
 \title{Graph a Classification or Regression Tree}
 \description{
   Graph a classification or regression tree with a hierarchical
-  tree diagram, optionally including shaded square symbols at
-  leaves and additional info at intermediate nodes.
+  tree diagram, optionally including shaded symbols at leaves 
+  and additional info at intermediate nodes.
 }
 \usage{
   draw.tree (tree, cex=par("cex"), pch=par("pch"), size=2.5*cex, 
-      col=NULL, nodeinfo=FALSE, units="", cases="obs", digits=0, 
+      col=NULL, nodeinfo=FALSE, units="", cases="obs", 
+      digits=getOption("digits"), print.levels=TRUE, 
       new=TRUE)
 }
 \arguments{
@@ -26,14 +27,24 @@
   \item{units}{label for units of mean value of response, if
                regression tree.}
   \item{cases}{label for type of observations.}
-  \item{digits}{parameter for rounding mean value of response, if
+  \item{digits}{number of digits to round mean value of response, if
                 regression tree.}
+  \item{print.levels}{if \code{TRUE}, print levels of factors at splits,
+                      otherwise only the factor name.}
   \item{new}{if \code{TRUE}, call \code{\link{plot.new}}.}
 }
 \details{
   As in \code{plot.rpart(,uniform=TRUE)}, each level has constant depth.  
   Specifying \code{nodeinfo=TRUE}, shows the deviance explained or the 
   classification rate at each node.
+
+  A split is shown, for numerical variables, as 
+  \code{variable <> value} when the cases with lower values go left, or as 
+  \code{variable >< value} when the cases with lower values go right.
+  When the splitting variable is a factor, and print.levels=TRUE, 
+  the split is shown as \code{levels = factor = levels} with the cases 
+  on the left having factor levels equal to those on the left of the 
+  factor name, and correspondingly for the right.
 }
 \value{The vector of colors supplied or generated.}
 \author{Denis White, \email{white.denis@epa.gov} }
@@ -48,7 +59,7 @@
   data (oregon.env.vars)
 
   draw.tree (prune.Rpart (rpart (oregon.env.vars), best=7), 
-      pch=19, nodeinfo=TRUE, units="species", cases="cells")
+      nodeinfo=TRUE, units="species", cases="cells")
 }
 \keyword{hplot}
 \keyword{tree}

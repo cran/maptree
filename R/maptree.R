@@ -1,7 +1,7 @@
 # maptree package
 #   for graphing and mapping of hierarchical clustering and
 #   regression trees
-# denis white, us epa, 8 April 2002, version 1.3-1
+# denis white, us epa, 19 April 2002, version 1.3-2
 #
 # function calls
 #
@@ -13,13 +13,14 @@
 #
 # draw.tree <- function (tree, cex=par("cex"), pch=par("pch"), 
 #     size=2.5*cex, col=NULL, nodeinfo=FALSE, units="",  
-#     cases="obs", digits=0, new=TRUE)
+#     cases="obs", digits=getOption("digits"), 
+#     print.levels=TRUE, new=TRUE)
 #
 # group.clust <- function (cluster, k=NULL, h=NULL)
 #
 # group.tree <- function (tree)
 #
-# kgs <- function (cluster, diss, maxclust=NULL)
+# kgs <- function (cluster, diss, alpha=1, maxclust=NULL)
 #
 # map.groups <- function (pts, group, pch=par("pch"), size=2, 
 #     col=NULL, border=NULL, new=TRUE)
@@ -141,7 +142,8 @@ draw.clust <- function (cluster, cex=par("cex"),
 
 draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
   size=2.5*cex, col=NULL, nodeinfo=FALSE, units="", 
-  cases="obs", digits=0, new=TRUE)
+  cases="obs", digits=getOption("digits"), print.levels=TRUE,
+  new=TRUE)
   # tree is object of class tree
   # cex is par parameter, size of text
   # pch is par parameter, shape of symbol at leaves of tree
@@ -155,6 +157,7 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
   # units are for mean value of response (if regression tree)
   # cases are names for observations
   # digits are rounding for response
+  # if print.levels=FALSE, do not show factor levels at splits
   # if new=TRUE, call plot.new()
   # returned value is col or generated colors
 {
@@ -241,14 +244,33 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
   y1 <- ymin - yf
   y2 <- ymax + yf
   par (usr=c(x1,x2,y1,y2))
+  v <- as.character (tframe$var[1])
   if (rptree) {
-    v <- tframe$var[1]
-    n <- tframe$n[1]
-    sp <- tree$splits
-    val <- sp[(rownames(sp) == v) & (sp[,"count"] == n), "index"]
+    sp <- tree$splits[1, ]
+    val <- sp["index"]
+    if (sp["ncat"] > 1) {
+      r <- sp["index"]
+      string <- "attributes(tree)$xlevels$"
+      string <- paste (string, v, sep="")
+      xl <- eval (parse (text=string))
+      lf <- rf <- ""
+      for (k in 1:sp["ncat"])
+        if (tree$csplit[r, k] == 1) 
+          lf <- paste (lf, xl[k], sep=",")
+        else
+          rf <- paste (rf, xl[k], sep=",")
+      if (! print.levels) string <- v
+      else string <- paste (lf, "=", v, "=", rf)
+      }
+    else {
+      if (sp["ncat"] < 0) op <- "<>" else op <- "><"
+      string <- paste (v, op, val)
+      }
     }
-  else val <- substring(as.character(tframe$splits[1,1]),2)
-  string <- paste (as.character(tframe$var[1]), "<>", val)
+  else {
+    val <- substring(as.character(tframe$splits[1, 1]), 2)
+    string <- paste (as.character(v), "<>", val)
+    }
   text.default (x[1], y[1], string, cex=cex)
   if (nodeinfo) {
     n <- tframe$n[1]
@@ -279,15 +301,40 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
         y[i]+ychr))
       }
     if(! leaves[i]) {
+      v <- as.character (tframe$var[i])
       if (rptree) {
-        v <- tframe$var[i]
-        n <- tframe$n[i]
-        sp <- tree$splits
-        val <- sp[(rownames(sp) == v) & (sp[,"count"] == n), 
-          "index"]
+        k <- 1
+        for (j in 1:(i-1)) {
+          m <- tframe$ncompete[j]
+          if (m > 0) k <- k + m + 1
+          m <- tframe$nsurrogate[j]
+          if (m > 0) k <- k + m
+          }
+        sp <- tree$splits[k, ]
+        val <- sp["index"]
+        if (sp["ncat"] > 1) {
+          r <- sp["index"]
+          string <- "attributes(tree)$xlevels$"
+          string <- paste (string, v, sep="")
+          xl <- eval (parse (text=string))
+          lf <- rf <- ""
+          for (k in 1:sp["ncat"])
+            if (tree$csplit[r, k] == 1) 
+              lf <- paste (lf, xl[k], sep=",")
+            else
+              rf <- paste (rf, xl[k], sep=",")
+          if (! print.levels) string <- v
+          else string <- paste (lf, "=", v, "=", rf)
+          }
+        else {
+          if (sp["ncat"] < 0) op <- "<>" else op <- "><"
+          string <- paste (v, op, val)
+          }
         }
-      else val <- substring(as.character(tframe$splits[i,1]),2)
-      string <- paste (as.character(tframe$var[i]), "<>", val)
+      else {
+        val <- substring(as.character(tframe$splits[i, 1]), 2)
+        string <- paste (as.character(v), "<>", val)
+        }
       text.default (x[i], y[i], string, cex=cex)
       if (nodeinfo) {
         n <- tframe$n[i]
@@ -348,23 +395,23 @@ group.clust <- function (cluster, k=NULL, h=NULL)
   # needs k or h, k takes precedence
   # returns vector of membership
 {
-  if (is.null(h) && is.null(k)) return (cluster$order)
-  if (!is.null(h) && h>max(cluster$height)) 
-    stop("group: h>max(height)")
-  if (!is.null(k) && (k==1 || k>length(cluster$height)))
-    stop("group: k==1 || k=>nobs")
-  if (class(cluster) == "hclust") clust <- cluster
-  else if (inherits(cluster,"twins"))
+  if (is.null (h) && is.null (k)) return (cluster$order)
+  if (!is.null (h) && h > max (cluster$height)) 
+    stop("group.clust: h > max (height)")
+  if (!is.null (k) && (k == 1 || k > length (cluster$height)))
+    stop("group.clust: k == 1 || k => nobs")
+  if (class (cluster) == "hclust") clust <- cluster
+  else if (inherits (cluster, "twins"))
     clust <- as.hclust (cluster)
   else
-    stop("group: input not hclust or twins")
+    stop("group.clust: input not hclust or twins")
   merg <- clust$merge
   hite <- clust$height
   ordr <- clust$order
-  nmerg <- nrow(merg)
+  nmerg <- nrow (merg)
   group <- rep (0, nmerg+1)
-  if (!is.null(k)) keep <- rev(order(hite))[1:(k-1)]
-  else keep <- seq(nmerg)[hite > h]
+  if (!is.null (k)) keep <- rev (order (hite))[1:(k-1)]
+  else keep <- seq (nmerg)[hite > h]
 
   mark.group <- function (node, grup)
   {
@@ -382,23 +429,23 @@ group.clust <- function (cluster, k=NULL, h=NULL)
   {
     a <- merg[node,1]
     b <- merg[node,2]
-    if (match(a,keep,0) != 0) find.group (a)
+    if (match (a, keep, 0) != 0) find.group (a)
     else {
       grup <<- grup + 1
       if (a > 0) mark.group (a, grup)
       else group[-a] <<- grup
       }
-    if (match(b,keep,0) != 0) find.group (b)
+    if (match (b, keep, 0) != 0) find.group (b)
     else {
       grup <<- grup + 1
       if (b > 0) mark.group (b, grup)
       else group[-b] <<- grup
       }
-    invisible()
+    invisible ()
   }
 
-  find.group (length(hite))
-  grup <- match(grup,unique(grup[clust$order]))
+  find.group (length (hite))
+  grup <- match (grup, unique (grup[clust$order]))
   invisible (group)
 }
 
@@ -408,19 +455,22 @@ group.tree <- function (tree)
   # alternative to tree$where that orders groups from left
   # to right in draw order
 {
-  group <- match (tree$where, sort(unique(tree$where)))
-  names(group) <- names(tree$where)
+  group <- match (tree$where, sort (unique (tree$where)))
+  names (group) <- names (tree$where)
   invisible (group)
 }
 
 ############################################################
 
-kgs <- function (cluster, diss, maxclust=NULL)
+kgs <- function (cluster, diss, alpha=1, maxclust=NULL)
   # cluster is class hclust or twins
   # diss is class dist or dissimilarity
+  # alpha is weight for number of clusters
   # maxclust is maximum number of clusters to compute for;
   #   if NULL, use n-1
   # needs {maptree} and {combinat}
+  # this implementation of complexity O(n*n*maxclust);
+  #   needs memory from level to level to cut down compares
   # ref: Kelley LA, Gardner SP, Sutcliffe MJ. 1996. An
   #   automated approach for clustering an ensemble of
   #   NMR-derived protein structures into conformationally-
@@ -441,7 +491,7 @@ kgs <- function (cluster, diss, maxclust=NULL)
       sp
     }
   if (class(cluster) == "hclust") clust <- cluster
-  else if (inherits(cluster,"twins"))
+  else if (inherits (cluster, "twins"))
     clust <- as.hclust (cluster)
   else
     stop("kgs: input not hclust or twins")
@@ -465,7 +515,7 @@ kgs <- function (cluster, diss, maxclust=NULL)
     avsp[i-1] <- sp / nsp
   }
   avsp <- (m-1)*(avsp - min(avsp))/diff (range (avsp)) + 1
-  kgs <- avsp + 2:m
+  kgs <- avsp + alpha*(2:m)
   names (kgs) <- as.character (2:m)
   kgs
 }
@@ -599,7 +649,7 @@ map.key <- function (x, y, labels=NULL, cex=par("cex"),
       else ngon (c(qx, qy, size=15*size*par("cin")[1], col=kol[i]), 
         n=pch-100, type=1)
       text (qx+dx, qy, labels[i], cex=cex) }
-  if (length(head)>0)
+  if (length (head) > 0)
     {
     qy <- qy + (dy * length (grep ("$", head)))
     if (sep == 0) qy <- qy + 0.5 * dy
@@ -679,24 +729,24 @@ prune.clust <- function (cluster, k=NULL, h=NULL)
   # needs k or h, k takes precedence
   # returns pruned cluster
 {
-  if (is.null(h) && is.null(k))
-    stop ("prune.clust: both h=NULL,k=NULL")
-  if (!is.null(h) && h>max(cluster$height)) 
-    stop("prune.clust: h>max(height)")
-  if (!is.null(k) && (k==1 || k>length(cluster$height)))
+  if (is.null (h) && is.null (k))
+    stop ("prune.clust: both h=NULL, k=NULL")
+  if (!is.null (h) && h > max (cluster$height)) 
+    stop("prune.clust: h > max (height)")
+  if (!is.null (k) && (k == 1 || k > length (cluster$height)))
     stop("prune.clust: k==1 || k=>nobs")
-  if (class(cluster) == "hclust") clust <- cluster
-  else if (inherits(cluster,"twins"))
+  if (class (cluster) == "hclust") clust <- cluster
+  else if (inherits (cluster, "twins"))
     clust <- as.hclust (cluster)
   else
     stop("prune.clust: input not hclust or twins")
   merg <- clust$merge
   hite <- clust$height
   nmerg <- nrow(merg)
-  if (!is.null(k)) keep <- rev(order(hite))[1:(k-1)]
-  else keep <- seq(nmerg)[hite > h]
-  numerg <- matrix(0,nrow=length(keep),ncol=2)
-  nuhite <- rep (0, length(keep))
+  if (!is.null (k)) keep <- rev (order (hite))[1:(k-1)]
+  else keep <- seq (nmerg)[hite > h]
+  numerg <- matrix (0, nrow=length (keep), ncol=2)
+  nuhite <- rep (0, length (keep))
 
   leaf <- 0
   node <- 0
@@ -704,12 +754,12 @@ prune.clust <- function (cluster, k=NULL, h=NULL)
   {
     a <- merg[oldnode,1]
     b <- merg[oldnode,2]
-    if (match(a,keep,0) != 0) l <- trim.clust(a)
+    if (match (a, keep, 0) != 0) l <- trim.clust (a)
     else {
       leaf <<- leaf + 1
       l <- -leaf
       }
-    if (match(b,keep,0) != 0) r <- trim.clust(b)
+    if (match (b, keep, 0) != 0) r <- trim.clust (b)
     else {
       leaf <<- leaf + 1
       r <- -leaf
@@ -720,14 +770,14 @@ prune.clust <- function (cluster, k=NULL, h=NULL)
     return (node)
   }
 
-  trim.clust(length(hite))
+  trim.clust (length (hite))
 #  trim.clust(match(max(hite),hite))
 
-  numerg <- matrix(as.integer(numerg),nrow=length(numerg)/2,ncol=2)
-  nuhite <- as.double(nuhite - min(nuhite))
-  nuordr <- as.double(seq(nrow(numerg)+1))
-  nulabl <- as.character(nuordr)
-  l <- list(merge=numerg, height=nuhite, order=nuordr, labels=nulabl,
+  numerg <- matrix (as.integer(numerg), nrow=length (numerg)/2, ncol=2)
+  nuhite <- as.double (nuhite - min (nuhite))
+  nuordr <- as.double (seq (nrow (numerg) + 1))
+  nulabl <- as.character (nuordr)
+  l <- list (merge=numerg, height=nuhite, order=nuordr, labels=nulabl,
     method=clust$method, call=clust$call, dist.method=clust$dist.method,
     size=table (group.clust (clust, k, h)))
   class(l) <- class(clust)
@@ -740,7 +790,7 @@ prune.Rpart <- function (tree, cp=NULL, best=NULL)
   # modification to original prune.rpart to add best
 {
   ff <- tree$frame
-  id <- as.integer(row.names(ff))
+  id <- as.integer (row.names (ff))
   if (is.null (cp)) {
     m <- tree$cptable[, "nsplit"]
     m <- max (m[m < best])
@@ -748,11 +798,10 @@ prune.Rpart <- function (tree, cp=NULL, best=NULL)
     cp <- tree$cptable[m, "CP"]
     }
   toss <- id[ff$complexity <= cp & ff$var != "<leaf>"]
-  if (length(toss) == 0) 
-    return(tree)
-  newx <- snip.rpart(tree, toss)
+  if (length (toss) == 0) return(tree)
+  newx <- snip.rpart (tree, toss)
   temp <- pmax(tree$cptable[, 1], cp)
-  keep <- match(unique(temp), temp)
+  keep <- match (unique (temp), temp)
   newx$cptable <- tree$cptable[keep, ]
   newx$cptable[max(keep), 1] <- cp
   newx
