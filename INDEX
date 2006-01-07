@@ -1,3 +1,6 @@
+clip.clust               Prunes a Hierarchical Cluster Tree
+clip.rpart               Prunes an Rpart Classification or Regression
+                         Tree
 draw.clust               Graph a Hierarchical Cluster Tree
 draw.tree                Graph a Classification or Regression Tree
 group.clust              Observation Groups for a Hierarchical Cluster
@@ -14,6 +17,4 @@ oregon.border            Boundary of Oregon, USA
 oregon.env.vars          Environmental Variables for Oregon, USA
 oregon.grid              Hexagonal Grid Cell Polygons covering Oregon,
                          USA
-prune.Rpart              Prunes an Rpart Classification or Regression
-                         Tree
-prune.clust              Prunes a Hierarchical Cluster Tree
+twins.to.hclust          Converts agnes or diana object to hclust object

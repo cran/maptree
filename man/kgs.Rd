@@ -42,14 +42,13 @@
 \seealso{
   \code{\link[cluster]{twins.object}}, 
   \code{\link[cluster]{dissimilarity.object}}, 
-  \code{\link[mva]{hclust}}, 
-  \code{\link[mva]{dist}},
-  \code{\link{prune.clust}},
+  \code{\link{hclust}}, 
+  \code{\link{dist}},
+  \code{\link{clip.clust}},
   \code{\link[combinat]{combn}}
 }
 \examples{
   library (cluster)
-  library (combinat)
   data (votes.repub)
 
   a <- agnes (votes.repub, method="ward")

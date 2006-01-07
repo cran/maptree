@@ -1,5 +1,5 @@
-\name{prune.clust}
-\alias{prune.clust}
+\name{clip.clust}
+\alias{clip.clust}
 \title{Prunes a Hierarchical Cluster Tree}
 \description{
   Reduces a hierarchical cluster tree to a smaller tree either
@@ -7,7 +7,7 @@
   or by pruning tree splits below a given height.
 }
 \usage{
-  prune.clust (cluster, k=NULL, h=NULL)
+  clip.clust (cluster, k=NULL, h=NULL)
 }
 \arguments{
   \item{cluster}{object of class \code{hclust} or \code{twins}.}
@@ -32,7 +32,7 @@
   library (cluster)
   data (oregon.bird.dist)
 
-  draw.clust (prune.clust (agnes (oregon.bird.dist), k=6))
+  draw.clust (clip.clust (agnes (oregon.bird.dist), k=6))
 }
 \keyword{manip}
 \keyword{cluster}

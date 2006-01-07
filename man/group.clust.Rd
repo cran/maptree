@@ -22,13 +22,12 @@
 \value{Vector of pruned cluster membership} 
 \author{Denis White, \email{white.denis@epa.gov} }
 \seealso{
-  \code{\link[mva]{hclust}}, 
+  \code{\link{hclust}}, 
   \code{\link[cluster]{twins.object}}, 
   \code{\link{cutree}}, 
   \code{\link{map.groups}}
 }
 \examples{
-  library (mva)
   data (oregon.bird.dist, oregon.grid)
 
   group <- group.clust (hclust (dist (oregon.bird.dist)), k=6)

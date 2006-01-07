@@ -22,8 +22,7 @@
              If \code{sep=0}, assume a continuous scale, use square
              symbols, and put labels at breaks between squares.}
   \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
-             etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
-             if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
+             etc, or if \code{NULL}, then use \code{\link{rainbow}}.}
   \item{new}{if \code{TRUE}, call \code{\link{plot}}.}
 }
 \details{
@@ -41,12 +40,14 @@
 
   # key for examples in help(map.groups)
   # range map for American Avocet
+  kol <- gray (seq(0.8,0.2,length.out=2))
   map.key (0.2, 0.2, labels=c("absent","present"), pch=106, 
-    col="gray", head="key", new=TRUE)
+    col=kol, head="key", new=TRUE)
   # distribution of January temperatures
   cuts <- quantile (oregon.env.vars[["jan.temp"]], probs=seq(0,1,1/5))
+  kol <- gray (seq(0.8,0.2,length.out=5))
   map.key (0.2, 0.2, labels=as.character(round(cuts,0)), 
-    col="gray", sep=0, head="key", new=TRUE)
+    col=kol, sep=0, head="key", new=TRUE)
 
   # key for example in \code{help(group.tree)}
   map.key (0.2, 0.2, labels=as.character(seq(6)), 

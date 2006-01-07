@@ -25,7 +25,7 @@
   library (rpart)
   data (oregon.env.vars, oregon.grid)
 
-  group <- group.tree (prune.Rpart (rpart (oregon.env.vars), best=7))
+  group <- group.tree (clip.rpart (rpart (oregon.env.vars), best=7))
   names(group) <- row.names(oregon.env.vars)
   map.groups (oregon.grid, group=group)
 }

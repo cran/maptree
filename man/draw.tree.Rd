@@ -3,7 +3,7 @@
 \title{Graph a Classification or Regression Tree}
 \description{
   Graph a classification or regression tree with a hierarchical
-  tree diagram, optionally including shaded symbols at leaves 
+  tree diagram, optionally including colored symbols at leaves 
   and additional info at intermediate nodes.
 }
 \usage{
@@ -19,8 +19,7 @@
   \item{size}{if \code{size=0}, draw terminal symbol at leaves else a
               symbol of size in cex units.}
   \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
-             etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
-             if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
+             etc, or if \code{NULL}, then use \code{\link{rainbow}}.}
   \item{nodeinfo}{if \code{TRUE}, add a line at each node with mean value
                   of response, number of observations, and percent
                   deviance explained (or classified correct).}
@@ -58,7 +57,7 @@
   library (rpart)
   data (oregon.env.vars)
 
-  draw.tree (prune.Rpart (rpart (oregon.env.vars), best=7), 
+  draw.tree (clip.rpart (rpart (oregon.env.vars), best=7), 
       nodeinfo=TRUE, units="species", cases="cells", digits=0)
 }
 \keyword{hplot}

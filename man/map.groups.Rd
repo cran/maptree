@@ -20,12 +20,10 @@
              parameter \code{n} for ngon.}
   \item{size}{size in cex units of point symbol.}
   \item{col}{vector of fill colors from \code{\link{hsv}}, \code{\link{rgb}},
-             etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
-             if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
+             etc, or if \code{NULL}, then use \code{\link{rainbow}}.}
   \item{border}{vector of border colors from \code{\link{hsv}},
              \code{\link{rgb}},
-             etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
-             if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
+             etc, or if \code{NULL}, then use \code{\link{rainbow}}.}
   \item{new}{if \code{TRUE}, call \code{\link{plot.new}}.}
 }
 \details{
@@ -57,7 +55,8 @@
   spp <- match ("American avocet", oregon.bird.names[["common.name"]])
   group <- oregon.bird.dist[,spp] + 1
   names(group) <- row.names(oregon.bird.dist)
-  map.groups (oregon.grid, group=group, col="gray")
+  kol <- gray (seq(0.8,0.2,length.out=length (table (group))))
+  map.groups (oregon.grid, group=group, col=kol)
   lines (oregon.border)
 
   # distribution of January temperatures
@@ -65,11 +64,12 @@
   group <- cut (oregon.env.vars[["jan.temp"]], cuts, labels=FALSE, 
     include.lowest=TRUE)
   names(group) <- row.names(oregon.env.vars)
-  map.groups (oregon.grid, group=group, col="gray")
+  kol <- gray (seq(0.8,0.2,length.out=length (table (group))))
+  map.groups (oregon.grid, group=group, col=kol)
   lines (oregon.border)
 
   # January temperatures using point symbols rather than polygons
-  map.groups (oregon.env.vars, group, pch=19, col="gray")
+  map.groups (oregon.env.vars, group, col=kol, pch=19)
   lines (oregon.border)
 }
 \keyword{hplot}

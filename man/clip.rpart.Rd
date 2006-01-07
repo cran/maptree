@@ -1,5 +1,5 @@
-\name{prune.Rpart}
-\alias{prune.Rpart}
+\name{clip.rpart}
+\alias{clip.rpart}
 \title{Prunes an Rpart Classification or Regression Tree}
 \description{
   Reduces a prediction tree produced by \code{\link{rpart}} to a
@@ -7,7 +7,7 @@
   or a number of nodes to which to prune.
 }
 \usage{
-  prune.Rpart (tree, cp=NULL, best=NULL)
+  clip.rpart (tree, cp=NULL, best=NULL)
 }
 \arguments{
   \item{tree}{object of class \code{rpart}.}
@@ -33,10 +33,10 @@
   library (rpart)
   data (oregon.env.vars, oregon.border, oregon.grid)
 
-  draw.tree (prune.Rpart (rpart (oregon.env.vars), best=7), 
+  draw.tree (clip.rpart (rpart (oregon.env.vars), best=7), 
     nodeinfo=TRUE, units="species", cases="cells", digits=0)
 
-  group <- group.tree (prune.Rpart (rpart (oregon.env.vars), best=7))
+  group <- group.tree (clip.rpart (rpart (oregon.env.vars), best=7))
   names(group) <- row.names(oregon.env.vars)
   map.groups (oregon.grid, group)
   lines (oregon.border)

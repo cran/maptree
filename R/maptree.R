@@ -1,15 +1,19 @@
 # maptree package
 #   for graphing and mapping of hierarchical clustering and
 #   regression trees
-# denis white, us epa, 19 April 2002, version 1.3-2
+# denis white, us epa, 7 January 2006, version 1.4-1
 #
 # function calls
 #
 ############################################################
 #
+# clip.clust <- function (cluster, k=NULL, h=NULL)
+#
+# clip.rpart <- function (tree, cp=NULL, best=NULL) 
+#
 # draw.clust <- function (cluster, cex=par("cex"), 
 #     pch=par("pch"), size=2.5*cex, col=NULL, nodeinfo=FALSE, 
-#     cases="obs", new=TRUE)
+#     membership=FALSE, cases="obs", new=TRUE)
 #
 # draw.tree <- function (tree, cex=par("cex"), pch=par("pch"), 
 #     size=2.5*cex, col=NULL, nodeinfo=FALSE, units="",  
@@ -31,30 +35,121 @@
 #
 # ngon <- function (xydc, n=4, angle=0, type=1)
 #
-# prune.clust <- function (cluster, k=NULL, h=NULL)
-#
-# prune.Rpart <- function (tree, cp=NULL, best=NULL) 
+# twins.to.hclust <- function (cluster)
+
+
+############################################################
+
+clip.clust <- function (cluster, k=NULL, h=NULL)
+  # analogous to prune.tree
+  # cluster is class hclust or twins
+  # k is desired number of groups
+  # h is height at which to cut for grouping
+  # needs k or h, k takes precedence
+  # returns pruned cluster
+{
+  if (is.null (h) && is.null (k))
+    stop ("clip.clust: both h=NULL, k=NULL")
+  if (!is.null (h) && h > max (cluster$height)) 
+    stop("clip.clust: h > max (height)")
+  if (!is.null (k) && (k == 1 || k > length (cluster$height)))
+    stop("clip.clust: k==1 || k=>nobs")
+  if ("hclust" %in% class (cluster)) clust <- cluster
+  else if (inherits (cluster, "twins"))
+    clust <- twins.to.hclust (cluster)
+    # clust <- as.hclust (cluster)
+  else
+    stop("clip.clust: input not hclust or twins")
+  merg <- clust$merge
+  hite <- clust$height
+  nmerg <- nrow(merg)
+  if (!is.null (k)) keep <- rev (order (hite))[1:(k-1)]
+  else keep <- seq (nmerg)[hite > h]
+  numerg <- matrix (0, nrow=length (keep), ncol=2)
+  nuhite <- rep (0, length (keep))
+
+  leaf <- 0
+  node <- 0
+  trim.clust <- function (oldnode)
+  {
+    a <- merg[oldnode,1]
+    b <- merg[oldnode,2]
+    if (match (a, keep, 0) != 0) l <- trim.clust (a)
+    else {
+      leaf <<- leaf + 1
+      l <- -leaf
+      }
+    if (match (b, keep, 0) != 0) r <- trim.clust (b)
+    else {
+      leaf <<- leaf + 1
+      r <- -leaf
+      }
+    node <<- node + 1
+    numerg[node,] <<- c(l,r)
+    nuhite[node] <<- hite[oldnode]
+    return (node)
+  }
+
+  trim.clust (length (hite))
+#  trim.clust(match(max(hite),hite))
+
+  numerg <- matrix (as.integer(numerg), nrow=length (numerg)/2, ncol=2)
+  nuhite <- as.double (nuhite - min (nuhite))
+  nuordr <- as.double (seq (nrow (numerg) + 1))
+  nulabl <- as.character (nuordr)
+  g <- group.clust (clust, k, h)
+  m <- split (dimnames (clust$data) [[1]], as.factor (g))
+  l <- list (merge=numerg, height=nuhite, order=nuordr, labels=nulabl,
+    method=clust$method, call=clust$call, dist.method=clust$dist.method,
+    size=table (g), membership=m)
+  class(l) <- class(clust)
+  l
+}
+
+############################################################
+
+clip.rpart <- function (tree, cp=NULL, best=NULL) 
+  # modification to original prune.rpart to add best
+{
+  ff <- tree$frame
+  id <- as.integer (row.names (ff))
+  if (is.null (cp)) {
+    m <- tree$cptable[, "nsplit"]
+    m <- max (m[m < best])
+    m <- match (m, tree$cptable[, "nsplit"])
+    cp <- tree$cptable[m, "CP"]
+    }
+  toss <- id[ff$complexity <= cp & ff$var != "<leaf>"]
+  if (length (toss) == 0) return(tree)
+  newx <- snip.rpart (tree, toss)
+  temp <- pmax(tree$cptable[, 1], cp)
+  keep <- match (unique (temp), temp)
+  newx$cptable <- tree$cptable[keep, ]
+  newx$cptable[max(keep), 1] <- cp
+  newx
+}
 
 ############################################################
 
 draw.clust <- function (cluster, cex=par("cex"), 
   pch=par("pch"), size=2.5*cex, col=NULL, nodeinfo=FALSE, 
-  cases="obs", new=TRUE)
+  membership=FALSE, cases="obs", new=TRUE)
   # cluster is class hclust or twins
   # cex is par parameter, size of text
   # pch is par parameter, shape of symbol at leaves of tree
   # size is in cex units for symbol at leaves of tree
-  # if col is NULL, use rainbow(),
-  #   else if col="gray" or "grey", use gray()
-  # if nodeinfo=TRUE, add a line at each leaf with number
+  # if col is NULL, use rainbow()
+  # if nodeinfo==TRUE, add a line at each leaf with number
   #   of observations included in leaf
+  # if membership==TRUE, print members at leaves
   # cases are names for cluster objects
   # if new=TRUE, call plot.new()
   # returned value is col or generated colors
 {
-  if (class (cluster) == "hclust") clust <- cluster
+  if ("hclust" %in% class (cluster)) clust <- cluster
   else if (inherits (cluster, "twins")) 
-    clust <- as.hclust (cluster)
+    clust <- twins.to.hclust (cluster)
+    # clust <- as.hclust (cluster)
   else stop("draw.clust: input not hclust or twins")
   merg <- clust$merge
   nmerg <- nrow (merg)
@@ -83,8 +178,6 @@ draw.clust <- function (cluster, cex=par("cex"),
   y2 <- ymax + yf
   par (usr=c(x1, x2, (y1-nodeinfo*ybx), y2))
   if (is.null(col)) kol <- rainbow (xmax)
-  else if (col=="gray" | col=="grey") kol <- 
-    gray (seq (0.8, 0.2, length=xmax))
   else kol <- col
   xmean <- rep (0, nmerg)
   i <- 1
@@ -110,8 +203,14 @@ draw.clust <- function (cluster, cex=par("cex"),
     else {
       x1 <- cord[-a]
       y1a <- y2 - ytail
-      points (x1, y1a-ybx/2, pch=pch, cex=size, col=kol[x1])
-      text.default (x1, y1a-(ybx/2), as.character(-a), cex=cex)
+      if (membership) {
+        m <- colnames (clust$data)[-a]
+        text.default (x1, y1a-(ybx/2), m, cex=cex)
+        }
+      else {
+        points (x1, y1a-ybx/2, pch=pch, cex=size, col=kol[x1])
+        text.default (x1, y1a-(ybx/2), as.character(-a), cex=cex)
+        }
       if (nodeinfo) {
         string <- paste (as.character (clust$size[-a]), cases)
         text.default (x1, y1a-1.3*ybx, string, cex=cex)
@@ -124,8 +223,14 @@ draw.clust <- function (cluster, cex=par("cex"),
     else {
       x2 <- cord[-b]
       y1b <- y2 - ytail
-      points (x2, y1b-ybx/2, pch=pch, cex=size, col=kol[x2])
-      text.default (x2, y1b-(ybx/2), as.character(-b), cex=cex)
+      if (membership) {
+        m <- colnames (clust$data)[-b]
+        text.default (x2, y1b-(ybx/2), m, cex=cex)
+        }
+      else {
+        points (x2, y1b-ybx/2, pch=pch, cex=size, col=kol[x2])
+        text.default (x2, y1b-(ybx/2), as.character(-b), cex=cex)
+        }
       if (nodeinfo) {
         string <- paste (as.character (clust$size[-b]), cases)
         text.default (x2, y1b-1.3*ybx, string, cex=cex)
@@ -149,8 +254,7 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
   # pch is par parameter, shape of symbol at leaves of tree
   # if size=0, draw terminal symbol at leaves 
   #   else symbol with size in cex units
-  # if col is NULL, use rainbow(),
-  #   else if col="gray" or "grey", use gray()
+  # if col is NULL, use rainbow()
   # if nodeinfo=TRUE, add a line at each node with mean value
   #   of response, number of observations, and percent
   #   deviance explained (or classified correct)
@@ -217,8 +321,6 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
     trate <- round (trate/tframe$n[1],3)*100
     }
   if (is.null(col)) kol <- rainbow (nleaves)
-  else if (col=="gray" | col=="grey") kol <- 
-    gray (seq(0.8,0.2,length=nleaves))
   else kol <- col
   xmax <- max(x)
   xmin <- min(x)
@@ -401,7 +503,7 @@ group.clust <- function (cluster, k=NULL, h=NULL)
     stop("group.clust: h > max (height)")
   if (!is.null (k) && (k == 1 || k > length (cluster$height)))
     stop("group.clust: k == 1 || k => nobs")
-  if (class (cluster) == "hclust") clust <- cluster
+  if ("hclust" %in% class (cluster)) clust <- cluster
   else if (inherits (cluster, "twins"))
     clust <- as.hclust (cluster)
   else
@@ -470,6 +572,7 @@ kgs <- function (cluster, diss, alpha=1, maxclust=NULL)
   # maxclust is maximum number of clusters to compute for;
   #   if NULL, use n-1
   # needs {maptree} and {combinat}
+  #   (but 1.4-1 combinat no namespace so included here)
   # this implementation of complexity O(n*n*maxclust);
   #   needs memory from level to level to cut down compares
   # ref: Kelley LA, Gardner SP, Sutcliffe MJ. 1996. An
@@ -491,7 +594,7 @@ kgs <- function (cluster, diss, alpha=1, maxclust=NULL)
       sp <- sp * 2 / (n * (n-1))
       sp
     }
-  if (class(cluster) == "hclust") clust <- cluster
+  if ("hclust" %in% class (cluster)) clust <- cluster
   else if (inherits (cluster, "twins"))
     clust <- as.hclust (cluster)
   else
@@ -535,8 +638,7 @@ map.groups <- function (pts, group, pch=par("pch"), size=2,
   #   else map with ngon (..., n=pch-100)
   # pch is par parameter, shape of point symbol
   # size is in cex units of point symbol
-  # if col is NULL, use rainbow(),
-  #   else if col="gray" or "grey", use gray()
+  # if col is NULL, use rainbow()
   # if border is NULL, use fill colors (col),
   #   else the specified color(s)
   # if new=TRUE, call plot.new()
@@ -561,8 +663,6 @@ map.groups <- function (pts, group, pch=par("pch"), size=2,
   dense <- sort (unique (group))
   nc <- length (dense)
   if (is.null(col)) fkol <- rainbow (nc)
-  else if (col=="gray" | col=="grey") fkol <- 
-    gray (seq (0.8, 0.2, length=nc))
   else fkol <- rep (col, nc)
   if (is.null(border)) bkol <- fkol
   else bkol <- rep (border, nc)
@@ -595,8 +695,7 @@ map.key <- function (x, y, labels=NULL, cex=par("cex"),
   # if pch < 100, use points for symbol, 
   #   else ngon (..., n=pch-100)
   # size is in cex units for key symbols
-  # if col is NULL, use rainbow(),
-  #   else if col="gray" or "grey", use gray()
+  # if col is NULL, use rainbow()
   # cex is par parameter, size of text
   # head is text heading for key
   # sep is separation in cex units between adjacent symbols
@@ -611,8 +710,6 @@ map.key <- function (x, y, labels=NULL, cex=par("cex"),
   nsym <- length (labels)
   if (sep == 0) nsym <- nsym - 1
   if (is.null (col)) kol <- rainbow (nsym)
-  else if (col=="gray" | col=="grey") kol <- 
-    gray (seq(0.8, 0.2, length=nsym))
   else kol <- col
   if (new)
     plot(c(0,1), c(0,1), type="n", axes=FALSE, xlab="", ylab="")
@@ -720,88 +817,42 @@ ngon <- function (xydc, n=4, angle=0, type=1)
 
 ############################################################
 
-prune.clust <- function (cluster, k=NULL, h=NULL)
-  # analogous to prune.tree
-  # cluster is class hclust or twins
-  # k is desired number of groups
-  # h is height at which to cut for grouping
-  # needs k or h, k takes precedence
-  # returns pruned cluster
+twins.to.hclust <- function (cluster)
 {
-  if (is.null (h) && is.null (k))
-    stop ("prune.clust: both h=NULL, k=NULL")
-  if (!is.null (h) && h > max (cluster$height)) 
-    stop("prune.clust: h > max (height)")
-  if (!is.null (k) && (k == 1 || k > length (cluster$height)))
-    stop("prune.clust: k==1 || k=>nobs")
-  if (class (cluster) == "hclust") clust <- cluster
-  else if (inherits (cluster, "twins"))
-    clust <- as.hclust (cluster)
-  else
-    stop("prune.clust: input not hclust or twins")
-  merg <- clust$merge
-  hite <- clust$height
-  nmerg <- nrow(merg)
-  if (!is.null (k)) keep <- rev (order (hite))[1:(k-1)]
-  else keep <- seq (nmerg)[hite > h]
-  numerg <- matrix (0, nrow=length (keep), ncol=2)
-  nuhite <- rep (0, length (keep))
+  if (! inherits(cluster,"twins"))
+    stop ("twins.to.hclust: input not twins")
+  merg <- cluster$merge
+  hite <- cluster$height
+  ordr <- cluster$order
+  nuhite <- rep (0, length(hite))
 
-  leaf <- 0
-  node <- 0
-  trim.clust <- function (oldnode)
+  hite.clust <- function (node)
   {
-    a <- merg[oldnode,1]
-    b <- merg[oldnode,2]
-    if (match (a, keep, 0) != 0) l <- trim.clust (a)
-    else {
-      leaf <<- leaf + 1
-      l <- -leaf
-      }
-    if (match (b, keep, 0) != 0) r <- trim.clust (b)
-    else {
-      leaf <<- leaf + 1
-      r <- -leaf
-      }
-    node <<- node + 1
-    numerg[node,] <<- c(l,r)
-    nuhite[node] <<- hite[oldnode]
-    return (node)
+    a <- merg[node,1]
+    b <- merg[node,2]
+    if (a < 0) l <- rep(match(-a,ordr),2)
+    else l <- hite.clust(a)
+    if (b < 0) r <- rep(match(-b,ordr),2)
+    else r <- hite.clust(b)
+    if (r[1] - l[2] == 1) nuhite[node] <<- hite[l[2]]
+    return (c(l[1],r[2]))
   }
 
-  trim.clust (length (hite))
-#  trim.clust(match(max(hite),hite))
+  n <- length(hite)
+  hite.clust (n)
 
-  numerg <- matrix (as.integer(numerg), nrow=length (numerg)/2, ncol=2)
-  nuhite <- as.double (nuhite - min (nuhite))
-  nuordr <- as.double (seq (nrow (numerg) + 1))
-  nulabl <- as.character (nuordr)
-  l <- list (merge=numerg, height=nuhite, order=nuordr, labels=nulabl,
-    method=clust$method, call=clust$call, dist.method=clust$dist.method,
-    size=table (group.clust (clust, k, h)))
-  class(l) <- class(clust)
+  l <- list()
+  l[[1]] <- merg
+  l[[2]] <- nuhite
+  l[[3]] <- ordr
+  l[[4]] <- cluster$order.lab
+  l[[5]] <- "unknown"
+  l[[6]] <- attr(cluster,"Call")
+  l[[7]] <- "unknown"
+  l[[8]] <- cluster$data
+  names(l) <- 
+    c("merge","height","order","labels","method",
+      "call","dist.method","data")
+  class(l) <- "hclust"
   l
-}
-
-############################################################
-
-prune.Rpart <- function (tree, cp=NULL, best=NULL) 
-  # modification to original prune.rpart to add best
-{
-  ff <- tree$frame
-  id <- as.integer (row.names (ff))
-  if (is.null (cp)) {
-    m <- tree$cptable[, "nsplit"]
-    m <- max (m[m < best])
-    m <- match (m, tree$cptable[, "nsplit"])
-    cp <- tree$cptable[m, "CP"]
-    }
-  toss <- id[ff$complexity <= cp & ff$var != "<leaf>"]
-  if (length (toss) == 0) return(tree)
-  newx <- snip.rpart (tree, toss)
-  temp <- pmax(tree$cptable[, 1], cp)
-  keep <- match (unique (temp), temp)
-  newx$cptable <- tree$cptable[keep, ]
-  newx$cptable[max(keep), 1] <- cp
-  newx
 }

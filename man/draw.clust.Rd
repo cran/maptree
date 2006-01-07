@@ -3,11 +3,11 @@
 \title{Graph a Hierarchical Cluster Tree}
 \description{
   Graph a hierarchical cluster tree of class \code{twins}
-  or \code{hclust} using shaded square symbols at observations.
+  or \code{hclust} using colored symbols at observations.
 }
 \usage{
   draw.clust (cluster, cex=par("cex"), pch=par("pch"), size=2.5*cex, 
-      col=NULL, nodeinfo=FALSE, cases="obs", new=TRUE)
+      col=NULL, nodeinfo=FALSE, membership=FALSE, cases="obs", new=TRUE)
 }
 \arguments{
   \item{cluster}{object of class \code{hclust} or \code{twins}.}
@@ -15,9 +15,9 @@
   \item{pch}{shape of symbol at leaves, par parameter.}
   \item{size}{size in cex units of symbol at leaves.}
   \item{col}{vector of colors from \code{\link{hsv}}, \code{\link{rgb}},
-             etc, or if \code{NULL}, then use \code{\link{rainbow}}, or
-             if \code{gray} or \code{grey}, then use \code{\link{gray}}.}
-  \item{nodeinfo}{if \code{TRUE}, add a line at each node with number
+             etc, or if \code{NULL}, then use \code{\link{rainbow}}.}
+  \item{nodeinfo}{if \code{TRUE}, print members of cluster at leaf.}
+  \item{membership}{if \code{TRUE}, add a line at each node with number
                   of observations included in each leaf.}
   \item{cases}{label for type of observations.}
   \item{new}{if \code{TRUE}, call \code{\link{plot.new}}.}
@@ -30,7 +30,7 @@
 \seealso{
   \code{\link[cluster]{agnes}}, 
   \code{\link[cluster]{diana}}, 
-  \code{\link[mva]{hclust}}, 
+  \code{\link{hclust}}, 
   \code{\link{draw.tree}}, 
   \code{\link{map.groups}}
 }
@@ -38,7 +38,7 @@
   library (cluster)
   data (oregon.bird.dist)
 
-  draw.clust (prune.clust (agnes (oregon.bird.dist), k=6))
+  draw.clust (clip.clust (agnes (oregon.bird.dist), k=6))
 }
 \keyword{hplot}
 \keyword{cluster}
