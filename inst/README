@@ -1,5 +1,10 @@
 Changes in contributed package maptree:
 
+1.4-2, 10 February 2006
+
+* fixed draw.tree to correctly label nodes when only one  
+  independent variable
+
 1.4-1, 7 January 2006
 
 * changed prune.clust to clip.clust and prune.Rpart to prune.rpart

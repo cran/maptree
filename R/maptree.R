@@ -285,6 +285,7 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
     x[i] <- 0.5 * (x[left.child[i]] + x[right.child[i]])
   nleaves <- sum(leaves)
   nnodes <- length(node)
+  nodeindex <- which (tframe$var != "<leaf>")
   if (rtree) {
     dev <- tframe$dev
     pcor <- rep (0, nnodes)
@@ -406,13 +407,16 @@ draw.tree <- function (tree, cex=par("cex"), pch=par("pch"),
     if(! leaves[i]) {
       v <- as.character (tframe$var[i])
       if (rptree) {
-        k <- 1
-        for (j in 1:(i-1)) {
-          m <- tframe$ncompete[j]
-          if (m > 0) k <- k + m + 1
-          m <- tframe$nsurrogate[j]
-          if (m > 0) k <- k + m
+        if (length (tree$ordered) > 1) {
+          k <- 1
+          for (j in 1:(i-1)) {
+            m <- tframe$ncompete[j]
+            if (m > 0) k <- k + m + 1
+            m <- tframe$nsurrogate[j]
+            if (m > 0) k <- k + m
+            }
           }
+        else k <- match (i, nodeindex[-1]) + 1
         sp <- tree$splits[k, ]
         val <- sp["index"]
         if (sp["ncat"] > 1) {
