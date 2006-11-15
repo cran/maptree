@@ -1,794 +1,2280 @@
-RDA1
-4 0
-5 class
-9 row.names
-5 names
-17 oregon.bird.names
-2 0 0
-1 0 0
+RDA2
+A
+2
+132096
+131840
+1026
+1
+4105
+17
+oregon.bird.names
+787
+2
+16
+248
+9
+19
+Podilymbus\040podiceps
+9
+16
+Podiceps\040auritus
+9
+18
+Podiceps\040grisegena
+9
+20
+Podiceps\040nigricollis
+9
+25
+Aechmophorus\040occidentalis
+9
+20
+Aechmophorus\040clarkii
+9
+25
+Pelecanus\040erythrorhynchos
+9
+21
+Phalacrocorax\040auritus
+9
+21
+Botaurus\040lentiginosus
+9
+17
+Ixobrychus\040exilis
+9
+14
+Ardea\040herodias
+9
+10
+Ardea\040alba
+9
+13
+Egretta\040thula
+9
+13
+Bubulcus\040ibis
+9
+19
+Butorides\040virescens
+9
+21
+Nycticorax\040nycticorax
+9
+14
+Plegadis\040chihi
+9
+17
+Branta\040canadensis
+9
+10
+Aix\040sponsa
+9
+11
+Anas\040crecca
+9
+18
+Anas\040platyrhynchos
+9
+10
+Anas\040acuta
+9
+12
+Anas\040discors
+9
+15
+Anas\040cyanoptera
+9
+13
+Anas\040clypeata
+9
+13
+Anas\040strepera
+9
+14
+Anas\040americana
+9
+18
+Aythya\040valisineria
+9
+16
+Aythya\040americana
+9
+15
+Aythya\040collaris
+9
+14
+Aythya\040affinis
+9
+25
+Histrionicus\040histrionicus
+9
+19
+Bucephala\040islandica
+9
+17
+Bucephala\040albeola
+9
+21
+Lophodytes\040cucullatus
+9
+16
+Mergus\040merganser
+9
+18
+Oxyura\040jamaicensis
+9
+14
+Cathartes\040aura
+9
+17
+Pandion\040haliaetus
+9
+15
+Elanus\040leucurus
+9
+24
+Haliaeetus\040leucocephalus
+9
+14
+Circus\040cyaneus
+9
+18
+Accipiter\040striatus
+9
+18
+Accipiter\040cooperii
+9
+18
+Accipiter\040gentilis
+9
+14
+Buteo\040lineatus
+9
+15
+Buteo\040swainsoni
+9
+17
+Buteo\040jamaicensis
+9
+13
+Buteo\040regalis
+9
+17
+Aquila\040chrysaetos
+9
+16
+Falco\040sparverius
+9
+16
+Falco\040peregrinus
+9
+15
+Falco\040mexicanus
+9
+22
+Dendragapus\040canadensis
+9
+20
+Dendragapus\040obscurus
+9
+15
+Bonasa\040umbellus
+9
+25
+Centrocercus\040urophasianus
+9
+22
+Callipepla\040californica
+9
+15
+Oreortyx\040pictus
+9
+26
+Coturnicops\040noveboracensis
+9
+15
+Rallus\040limicola
+9
+16
+Porzana\040carolina
+9
+16
+Fulica\040americana
+9
+15
+Grus\040canadensis
+9
+23
+Charadrius\040alexandrinus
+9
+23
+Charadrius\040semipalmatus
+9
+20
+Charadrius\040vociferus
+9
+20
+Himantopus\040mexicanus
+9
+23
+Recurvirostra\040americana
+9
+18
+Tringa\040melanoleuca
+9
+16
+Tringa\040solitaria
+9
+27
+Catoptrophorus\040semipalmatus
+9
+17
+Actitis\040macularia
+9
+20
+Bartramia\040longicauda
+9
+19
+Numenius\040americanus
+9
+14
+Calidris\040mauri
+9
+18
+Calidris\040minutilla
+9
+19
+Gallinago\040gallinago
+9
+19
+Phalaropus\040tricolor
+9
+14
+Larus\040pipixcan
+9
+18
+Larus\040philadelphia
+9
+11
+Larus\040canus
+9
+18
+Larus\040delawarensis
+9
+18
+Larus\040californicus
+9
+13
+Sterna\040caspia
+9
+15
+Sterna\040forsteri
+9
+16
+Chlidonias\040niger
+9
+24
+Brachyramphus\040marmoratus
+9
+16
+Columba\040fasciata
+9
+16
+Zenaida\040macroura
+9
+19
+Coccyzus\040americanus
+9
+9
+Tyto\040alba
+9
+15
+Otus\040flammeolus
+9
+16
+Otus\040kennicottii
+9
+16
+Bubo\040virginianus
+9
+16
+Glaucidium\040gnoma
+9
+18
+Athene\040cunicularia
+9
+18
+Strix\040occidentalis
+9
+11
+Strix\040varia
+9
+14
+Strix\040nebulosa
+9
+9
+Asio\040otus
+9
+13
+Asio\040flammeus
+9
+17
+Aegolius\040funereus
+9
+17
+Aegolius\040acadicus
+9
+16
+Chordeiles\040minor
+9
+24
+Phalaenoptilus\040nuttallii
+9
+17
+Cypseloides\040niger
+9
+14
+Chaetura\040vauxi
+9
+20
+Aeronautes\040saxatalis
+9
+21
+Archilochus\040alexandri
+9
+12
+Calypte\040anna
+9
+17
+Stellula\040calliope
+9
+23
+Selasphorus\040platycercus
+9
+17
+Selasphorus\040rufus
+9
+17
+Selasphorus\040sasin
+9
+13
+Ceryle\040alcyon
+9
+16
+Melanerpes\040lewis
+9
+23
+Melanerpes\040formicivorus
+9
+17
+Sphyrapicus\040ruber
+9
+22
+Sphyrapicus\040thyroideus
+9
+20
+Sphyrapicus\040nuchalis
+9
+18
+Picoides\040pubescens
+9
+17
+Picoides\040villosus
+9
+21
+Picoides\040albolarvatus
+9
+20
+Picoides\040tridactylus
+9
+17
+Picoides\040arcticus
+9
+16
+Colaptes\040auratus
+9
+18
+Dryocopus\040pileatus
+9
+17
+Contopus\040borealis
+9
+19
+Contopus\040sordidulus
+9
+18
+Empidonax\040traillii
+9
+17
+Empidonax\040minimus
+9
+19
+Empidonax\040hammondii
+9
+21
+Empidonax\040oberholseri
+9
+18
+Empidonax\040wrightii
+9
+20
+Empidonax\040difficilis
+9
+22
+Empidonax\040occidentalis
+9
+18
+Sayornis\040nigricans
+9
+13
+Sayornis\040saya
+9
+21
+Myiarchus\040cinerascens
+9
+19
+Tyrannus\040verticalis
+9
+17
+Tyrannus\040tyrannus
+9
+20
+Eremophila\040alpestris
+9
+12
+Progne\040subis
+9
+19
+Tachycineta\040bicolor
+9
+22
+Tachycineta\040thalassina
+9
+26
+Stelgidopteryx\040serripennis
+9
+15
+Riparia\040riparia
+9
+18
+Hirundo\040pyrrhonota
+9
+15
+Hirundo\040rustica
+9
+21
+Perisoreus\040canadensis
+9
+19
+Cyanocitta\040stelleri
+9
+22
+Aphelocoma\040californica
+9
+25
+Gymnorhinus\040cyanocephalus
+9
+20
+Nucifraga\040columbiana
+9
+9
+Pica\040pica
+9
+21
+Corvus\040brachyrhynchos
+9
+12
+Corvus\040corax
+9
+18
+Parus\040atricapillus
+9
+13
+Parus\040gambeli
+9
+15
+Parus\040rufescens
+9
+15
+Parus\040inornatus
+9
+20
+Psaltriparus\040minimus
+9
+16
+Sitta\040canadensis
+9
+18
+Sitta\040carolinensis
+9
+13
+Sitta\040pygmaea
+9
+17
+Certhia\040americana
+9
+20
+Salpinctes\040obsoletus
+9
+19
+Catherpes\040mexicanus
+9
+19
+Thryomanes\040bewickii
+9
+17
+Troglodytes\040aedon
+9
+23
+Troglodytes\040troglodytes
+9
+21
+Cistothorus\040palustris
+9
+17
+Cinclus\040mexicanus
+9
+15
+Regulus\040satrapa
+9
+17
+Regulus\040calendula
+9
+19
+Polioptila\040caerulea
+9
+15
+Sialia\040mexicana
+9
+18
+Sialia\040currucoides
+9
+19
+Myadestes\040townsendi
+9
+19
+Catharus\040fuscescens
+9
+18
+Catharus\040ustulatus
+9
+17
+Catharus\040guttatus
+9
+18
+Turdus\040migratorius
+9
+15
+Ixoreus\040naevius
+9
+16
+Chamaea\040fasciata
+9
+22
+Dumetella\040carolinensis
+9
+17
+Mimus\040polyglottos
+9
+20
+Oreoscoptes\040montanus
+9
+16
+Anthus\040rubescens
+9
+19
+Bombycilla\040cedrorum
+9
+19
+Lanius\040ludovicianus
+9
+13
+Vireo\040huttoni
+9
+12
+Vireo\040gilvus
+9
+15
+Vireo\040olivaceus
+9
+14
+Vireo\040cassinii
+9
+16
+Vermivora\040celata
+9
+21
+Vermivora\040ruficapilla
+9
+18
+Dendroica\040petechia
+9
+18
+Dendroica\040coronata
+9
+20
+Dendroica\040nigrescens
+9
+19
+Dendroica\040townsendi
+9
+22
+Dendroica\040occidentalis
+9
+19
+Setophaga\040ruticilla
+9
+22
+Seiurus\040noveboracensis
+9
+17
+Oporornis\040tolmiei
+9
+18
+Geothlypis\040trichas
+9
+16
+Wilsonia\040pusilla
+9
+14
+Icteria\040virens
+9
+19
+Piranga\040ludoviciana
+9
+25
+Pheucticus\040melanocephalus
+9
+16
+Passerina\040amoena
+9
+16
+Pipilo\040chlorurus
+9
+16
+Pipilo\040crissalis
+9
+16
+Pipilo\040maculatus
+9
+18
+Spizella\040passerina
+9
+16
+Spizella\040breweri
+9
+20
+Spizella\040atrogularis
+9
+19
+Pooecetes\040gramineus
+9
+20
+Chondestes\040grammacus
+9
+20
+Amphispiza\040bilineata
+9
+16
+Amphispiza\040belli
+9
+25
+Passerculus\040sandwichensis
+9
+21
+Ammodramus\040savannarum
+9
+17
+Passerella\040iliaca
+9
+17
+Melospiza\040melodia
+9
+19
+Melospiza\040lincolnii
+9
+22
+Zonotrichia\040leucophrys
+9
+14
+Junco\040hyemalis
+9
+21
+Dolichonyx\040oryzivorus
+9
+19
+Agelaius\040phoeniceus
+9
+17
+Agelaius\040tricolor
+9
+18
+Sturnella\040neglecta
+9
+29
+Xanthocephalus\040xanthocephalus
+9
+22
+Euphagus\040cyanocephalus
+9
+14
+Molothrus\040ater
+9
+17
+Icterus\040bullockii
+9
+18
+Leucosticte\040atrata
+9
+23
+Leucosticte\040tephrocotis
+9
+19
+Pinicola\040enucleator
+9
+20
+Carpodacus\040purpureus
+9
+19
+Carpodacus\040cassinii
+9
+20
+Carpodacus\040mexicanus
+9
+17
+Loxia\040curvirostra
+9
+15
+Carduelis\040pinus
+9
+18
+Carduelis\040psaltria
+9
+17
+Carduelis\040tristis
+9
+26
+Coccothraustes\040vespertinus
+16
+248
+9
+17
+Pied-billed\040grebe
+9
+12
+Horned\040grebe
+9
+16
+Red-necked\040grebe
+9
+11
+Eared\040grebe
+9
+13
+Western\040grebe
+9
+13
+Clark\'s\040grebe
+9
+22
+American\040white\040pelican
+9
+24
+Double-crested\040cormorant
+9
+16
+American\040bittern
+9
+13
+Least\040bittern
+9
+16
+Great\040blue\040heron
+9
+11
+Great\040egret
+9
+11
+Snowy\040egret
+9
+12
+Cattle\040egret
+9
+11
+Green\040heron
+9
+25
+Black-crowned\040night-heron
+9
+16
+White-faced\040ibis
+9
+12
+Canada\040goose
+9
+9
+Wood\040duck
+9
+17
+Green-winged\040teal
+9
+7
+Mallard
+9
+16
+Northern\040pintail
+9
+16
+Blue-winged\040teal
+9
+13
+Cinnamon\040teal
+9
+17
+Northern\040shoveler
+9
+7
+Gadwall
+9
+15
+American\040wigeon
+9
+10
+Canvasback
+9
+7
+Redhead
+9
+16
+Ring-necked\040duck
+9
+12
+Lesser\040scaup
+9
+14
+Harlequin\040duck
+9
+18
+Barrow\'s\040goldeneye
+9
+10
+Bufflehead
+9
+16
+Hooded\040merganser
+9
+16
+Common\040merganser
+9
+10
+Ruddy\040duck
+9
+14
+Turkey\040vulture
+9
+6
+Osprey
+9
+17
+White-tailed\040kite
+9
+10
+Bald\040eagle
+9
+16
+Northern\040harrier
+9
+18
+Sharp-shinned\040hawk
+9
+13
+Cooper\'s\040hawk
+9
+16
+Northern\040goshawk
+9
+19
+Red-shouldered\040hawk
+9
+15
+Swainson\'s\040hawk
+9
+15
+Red-tailed\040hawk
+9
+16
+Ferruginous\040hawk
+9
+12
+Golden\040eagle
+9
+16
+American\040kestrel
+9
+16
+Peregrine\040falcon
+9
+14
+Prairie\040falcon
+9
+13
+Spruce\040grouse
+9
+11
+Blue\040grouse
+9
+13
+Ruffed\040grouse
+9
+11
+Sage\040grouse
+9
+16
+California\040quail
+9
+14
+Mountain\040quail
+9
+11
+Yellow\040rail
+9
+13
+Virginia\040rail
+9
 4
--1
-19 0 1
-2
-16 0 0
-248
- 19 Podilymbus\040podiceps
- 16 Podiceps\040auritus
- 18 Podiceps\040grisegena
- 20 Podiceps\040nigricollis
- 25 Aechmophorus\040occidentalis
- 20 Aechmophorus\040clarkii
- 25 Pelecanus\040erythrorhynchos
- 21 Phalacrocorax\040auritus
- 21 Botaurus\040lentiginosus
- 17 Ixobrychus\040exilis
- 14 Ardea\040herodias
- 10 Ardea\040alba
- 13 Egretta\040thula
- 13 Bubulcus\040ibis
- 19 Butorides\040virescens
- 21 Nycticorax\040nycticorax
- 14 Plegadis\040chihi
- 17 Branta\040canadensis
- 10 Aix\040sponsa
- 11 Anas\040crecca
- 18 Anas\040platyrhynchos
- 10 Anas\040acuta
- 12 Anas\040discors
- 15 Anas\040cyanoptera
- 13 Anas\040clypeata
- 13 Anas\040strepera
- 14 Anas\040americana
- 18 Aythya\040valisineria
- 16 Aythya\040americana
- 15 Aythya\040collaris
- 14 Aythya\040affinis
- 25 Histrionicus\040histrionicus
- 19 Bucephala\040islandica
- 17 Bucephala\040albeola
- 21 Lophodytes\040cucullatus
- 16 Mergus\040merganser
- 18 Oxyura\040jamaicensis
- 14 Cathartes\040aura
- 17 Pandion\040haliaetus
- 15 Elanus\040leucurus
- 24 Haliaeetus\040leucocephalus
- 14 Circus\040cyaneus
- 18 Accipiter\040striatus
- 18 Accipiter\040cooperii
- 18 Accipiter\040gentilis
- 14 Buteo\040lineatus
- 15 Buteo\040swainsoni
- 17 Buteo\040jamaicensis
- 13 Buteo\040regalis
- 17 Aquila\040chrysaetos
- 16 Falco\040sparverius
- 16 Falco\040peregrinus
- 15 Falco\040mexicanus
- 22 Dendragapus\040canadensis
- 20 Dendragapus\040obscurus
- 15 Bonasa\040umbellus
- 25 Centrocercus\040urophasianus
- 22 Callipepla\040californica
- 15 Oreortyx\040pictus
- 26 Coturnicops\040noveboracensis
- 15 Rallus\040limicola
- 16 Porzana\040carolina
- 16 Fulica\040americana
- 15 Grus\040canadensis
- 23 Charadrius\040alexandrinus
- 23 Charadrius\040semipalmatus
- 20 Charadrius\040vociferus
- 20 Himantopus\040mexicanus
- 23 Recurvirostra\040americana
- 18 Tringa\040melanoleuca
- 16 Tringa\040solitaria
- 27 Catoptrophorus\040semipalmatus
- 17 Actitis\040macularia
- 20 Bartramia\040longicauda
- 19 Numenius\040americanus
- 14 Calidris\040mauri
- 18 Calidris\040minutilla
- 19 Gallinago\040gallinago
- 19 Phalaropus\040tricolor
- 14 Larus\040pipixcan
- 18 Larus\040philadelphia
- 11 Larus\040canus
- 18 Larus\040delawarensis
- 18 Larus\040californicus
- 13 Sterna\040caspia
- 15 Sterna\040forsteri
- 16 Chlidonias\040niger
- 24 Brachyramphus\040marmoratus
- 16 Columba\040fasciata
- 16 Zenaida\040macroura
- 19 Coccyzus\040americanus
- 9 Tyto\040alba
- 15 Otus\040flammeolus
- 16 Otus\040kennicottii
- 16 Bubo\040virginianus
- 16 Glaucidium\040gnoma
- 18 Athene\040cunicularia
- 18 Strix\040occidentalis
- 11 Strix\040varia
- 14 Strix\040nebulosa
- 9 Asio\040otus
- 13 Asio\040flammeus
- 17 Aegolius\040funereus
- 17 Aegolius\040acadicus
- 16 Chordeiles\040minor
- 24 Phalaenoptilus\040nuttallii
- 17 Cypseloides\040niger
- 14 Chaetura\040vauxi
- 20 Aeronautes\040saxatalis
- 21 Archilochus\040alexandri
- 12 Calypte\040anna
- 17 Stellula\040calliope
- 23 Selasphorus\040platycercus
- 17 Selasphorus\040rufus
- 17 Selasphorus\040sasin
- 13 Ceryle\040alcyon
- 16 Melanerpes\040lewis
- 23 Melanerpes\040formicivorus
- 17 Sphyrapicus\040ruber
- 22 Sphyrapicus\040thyroideus
- 20 Sphyrapicus\040nuchalis
- 18 Picoides\040pubescens
- 17 Picoides\040villosus
- 21 Picoides\040albolarvatus
- 20 Picoides\040tridactylus
- 17 Picoides\040arcticus
- 16 Colaptes\040auratus
- 18 Dryocopus\040pileatus
- 17 Contopus\040borealis
- 19 Contopus\040sordidulus
- 18 Empidonax\040traillii
- 17 Empidonax\040minimus
- 19 Empidonax\040hammondii
- 21 Empidonax\040oberholseri
- 18 Empidonax\040wrightii
- 20 Empidonax\040difficilis
- 22 Empidonax\040occidentalis
- 18 Sayornis\040nigricans
- 13 Sayornis\040saya
- 21 Myiarchus\040cinerascens
- 19 Tyrannus\040verticalis
- 17 Tyrannus\040tyrannus
- 20 Eremophila\040alpestris
- 12 Progne\040subis
- 19 Tachycineta\040bicolor
- 22 Tachycineta\040thalassina
- 26 Stelgidopteryx\040serripennis
- 15 Riparia\040riparia
- 18 Hirundo\040pyrrhonota
- 15 Hirundo\040rustica
- 21 Perisoreus\040canadensis
- 19 Cyanocitta\040stelleri
- 22 Aphelocoma\040californica
- 25 Gymnorhinus\040cyanocephalus
- 20 Nucifraga\040columbiana
- 9 Pica\040pica
- 21 Corvus\040brachyrhynchos
- 12 Corvus\040corax
- 18 Parus\040atricapillus
- 13 Parus\040gambeli
- 15 Parus\040rufescens
- 15 Parus\040inornatus
- 20 Psaltriparus\040minimus
- 16 Sitta\040canadensis
- 18 Sitta\040carolinensis
- 13 Sitta\040pygmaea
- 17 Certhia\040americana
- 20 Salpinctes\040obsoletus
- 19 Catherpes\040mexicanus
- 19 Thryomanes\040bewickii
- 17 Troglodytes\040aedon
- 23 Troglodytes\040troglodytes
- 21 Cistothorus\040palustris
- 17 Cinclus\040mexicanus
- 15 Regulus\040satrapa
- 17 Regulus\040calendula
- 19 Polioptila\040caerulea
- 15 Sialia\040mexicana
- 18 Sialia\040currucoides
- 19 Myadestes\040townsendi
- 19 Catharus\040fuscescens
- 18 Catharus\040ustulatus
- 17 Catharus\040guttatus
- 18 Turdus\040migratorius
- 15 Ixoreus\040naevius
- 16 Chamaea\040fasciata
- 22 Dumetella\040carolinensis
- 17 Mimus\040polyglottos
- 20 Oreoscoptes\040montanus
- 16 Anthus\040rubescens
- 19 Bombycilla\040cedrorum
- 19 Lanius\040ludovicianus
- 13 Vireo\040huttoni
- 12 Vireo\040gilvus
- 15 Vireo\040olivaceus
- 14 Vireo\040cassinii
- 16 Vermivora\040celata
- 21 Vermivora\040ruficapilla
- 18 Dendroica\040petechia
- 18 Dendroica\040coronata
- 20 Dendroica\040nigrescens
- 19 Dendroica\040townsendi
- 22 Dendroica\040occidentalis
- 19 Setophaga\040ruticilla
- 22 Seiurus\040noveboracensis
- 17 Oporornis\040tolmiei
- 18 Geothlypis\040trichas
- 16 Wilsonia\040pusilla
- 14 Icteria\040virens
- 19 Piranga\040ludoviciana
- 25 Pheucticus\040melanocephalus
- 16 Passerina\040amoena
- 16 Pipilo\040chlorurus
- 16 Pipilo\040crissalis
- 16 Pipilo\040maculatus
- 18 Spizella\040passerina
- 16 Spizella\040breweri
- 20 Spizella\040atrogularis
- 19 Pooecetes\040gramineus
- 20 Chondestes\040grammacus
- 20 Amphispiza\040bilineata
- 16 Amphispiza\040belli
- 25 Passerculus\040sandwichensis
- 21 Ammodramus\040savannarum
- 17 Passerella\040iliaca
- 17 Melospiza\040melodia
- 19 Melospiza\040lincolnii
- 22 Zonotrichia\040leucophrys
- 14 Junco\040hyemalis
- 21 Dolichonyx\040oryzivorus
- 19 Agelaius\040phoeniceus
- 17 Agelaius\040tricolor
- 18 Sturnella\040neglecta
- 29 Xanthocephalus\040xanthocephalus
- 22 Euphagus\040cyanocephalus
- 14 Molothrus\040ater
- 17 Icterus\040bullockii
- 18 Leucosticte\040atrata
- 23 Leucosticte\040tephrocotis
- 19 Pinicola\040enucleator
- 20 Carpodacus\040purpureus
- 19 Carpodacus\040cassinii
- 20 Carpodacus\040mexicanus
- 17 Loxia\040curvirostra
- 15 Carduelis\040pinus
- 18 Carduelis\040psaltria
- 17 Carduelis\040tristis
- 26 Coccothraustes\040vespertinus
--1
-
-16 0 0
-248
- 17 Pied-billed\040grebe
- 12 Horned\040grebe
- 16 Red-necked\040grebe
- 11 Eared\040grebe
- 13 Western\040grebe
- 13 Clark's\040grebe
- 22 American\040white\040pelican
- 24 Double-crested\040cormorant
- 16 American\040bittern
- 13 Least\040bittern
- 16 Great\040blue\040heron
- 11 Great\040egret
- 11 Snowy\040egret
- 12 Cattle\040egret
- 11 Green\040heron
- 25 Black-crowned\040night-heron
- 16 White-faced\040ibis
- 12 Canada\040goose
- 9 Wood\040duck
- 17 Green-winged\040teal
- 7 Mallard
- 16 Northern\040pintail
- 16 Blue-winged\040teal
- 13 Cinnamon\040teal
- 17 Northern\040shoveler
- 7 Gadwall
- 15 American\040wigeon
- 10 Canvasback
- 7 Redhead
- 16 Ring-necked\040duck
- 12 Lesser\040scaup
- 14 Harlequin\040duck
- 18 Barrow's\040goldeneye
- 10 Bufflehead
- 16 Hooded\040merganser
- 16 Common\040merganser
- 10 Ruddy\040duck
- 14 Turkey\040vulture
- 6 Osprey
- 17 White-tailed\040kite
- 10 Bald\040eagle
- 16 Northern\040harrier
- 18 Sharp-shinned\040hawk
- 13 Cooper's\040hawk
- 16 Northern\040goshawk
- 19 Red-shouldered\040hawk
- 15 Swainson's\040hawk
- 15 Red-tailed\040hawk
- 16 Ferruginous\040hawk
- 12 Golden\040eagle
- 16 American\040kestrel
- 16 Peregrine\040falcon
- 14 Prairie\040falcon
- 13 Spruce\040grouse
- 11 Blue\040grouse
- 13 Ruffed\040grouse
- 11 Sage\040grouse
- 16 California\040quail
- 14 Mountain\040quail
- 11 Yellow\040rail
- 13 Virginia\040rail
- 4 Sora
- 13 American\040coot
- 14 Sandhill\040crane
- 12 Snowy\040plover
- 19 Semipalmated\040plover
- 8 Killdeer
- 18 Black-necked\040stilt
- 15 American\040avocet
- 18 Greater\040yellowlegs
- 18 Solitary\040sandpiper
- 6 Willet
- 17 Spotted\040sandpiper
- 16 Upland\040sandpiper
- 18 Long-billed\040curlew
- 17 Western\040sandpiper
- 15 Least\040sandpiper
- 12 Common\040snipe
- 18 Wilson's\040phalarope
- 15 Franklin's\040gull
- 16 Bonaparte's\040gull
- 8 Mew\040gull
- 16 Ring-billed\040gull
- 15 California\040gull
- 12 Caspian\040tern
- 14 Forster's\040tern
- 10 Black\040tern
- 16 Marbled\040murrelet
- 18 Band-tailed\040pigeon
- 13 Mourning\040dove
- 20 Yellow-billed\040cuckoo
- 8 Barn\040owl
- 15 Flammulated\040owl
- 19 Western\040screech-owl
- 16 Great\040horned\040owl
- 18 Northern\040pygmy-owl
- 13 Burrowing\040owl
- 11 Spotted\040owl
- 10 Barred\040owl
- 14 Great\040gray\040owl
- 14 Long-eared\040owl
- 15 Short-eared\040owl
- 10 Boreal\040owl
- 21 Northern\040saw-whet\040owl
- 16 Common\040nighthawk
- 15 Common\040poorwill
- 11 Black\040swift
- 12 Vaux's\040swift
- 20 White-throated\040swift
- 25 Black-chinned\040hummingbird
- 18 Anna's\040hummingbird
- 20 Calliope\040hummingbird
- 24 Broad-tailed\040hummingbird
- 18 Rufous\040hummingbird
- 19 Allen's\040hummingbird
- 17 Belted\040kingfisher
- 17 Lewis'\040woodpecker
- 16 Acorn\040woodpecker
- 22 Red-breasted\040sapsucker
- 22 Williamson's\040sapsucker
- 19 Red-naped\040sapsucker
- 16 Downy\040woodpecker
- 16 Hairy\040woodpecker
- 23 White-headed\040woodpecker
- 21 Three-toed\040woodpecker
- 23 Black-backed\040woodpecker
- 16 Northern\040flicker
- 19 Pileated\040woodpecker
- 22 Olive-sided\040flycatcher
- 18 Western\040wood-pewee
- 17 Willow\040flycatcher
- 16 Least\040flycatcher
- 20 Hammond's\040flycatcher
- 16 Dusky\040flycatcher
- 15 Gray\040flycatcher
- 24 Pacific-slope\040flycatcher
- 22 Cordilleran\040flycatcher
- 12 Black\040phoebe
- 12 Say's\040phoebe
- 23 Ash-throated\040flycatcher
- 16 Western\040kingbird
- 16 Eastern\040kingbird
- 11 Horned\040lark
- 13 Purple\040martin
- 12 Tree\040swallow
- 20 Violet-green\040swallow
- 29 Northern\040rough-winged\040swallow
- 12 Bank\040swallow
- 13 Cliff\040swallow
- 12 Barn\040swallow
- 8 Gray\040jay
- 13 Steller's\040jay
- 9 Scrub\040jay
- 10 Pinyon\040jay
- 18 Clark's\040nutcracker
- 19 Black-billed\040magpie
- 13 American\040crow
- 12 Common\040raven
- 22 Black-capped\040chickadee
- 18 Mountain\040chickadee
- 25 Chestnut-backed\040chickadee
- 14 Plain\040titmouse
- 7 Bushtit
- 21 Red-breasted\040nuthatch
- 23 White-breasted\040nuthatch
- 14 Pygmy\040nuthatch
- 13 Brown\040creeper
- 9 Rock\040wren
- 11 Canyon\040wren
- 13 Bewick's\040wren
- 10 House\040wren
- 11 Winter\040wren
- 10 Marsh\040wren
- 15 American\040dipper
- 22 Golden-crowned\040kinglet
- 20 Ruby-crowned\040kinglet
- 21 Blue-gray\040gnatcatcher
- 16 Western\040bluebird
- 17 Mountain\040bluebird
- 20 Townsend's\040solitaire
- 5 Veery
- 17 Swainson's\040thrush
- 13 Hermit\040thrush
- 14 American\040robin
- 13 Varied\040thrush
- 7 Wrentit
- 12 Gray\040catbird
- 20 Northern\040mockingbird
- 13 Sage\040thrasher
- 14 American\040pipit
- 13 Cedar\040waxwing
- 17 Loggerhead\040shrike
- 14 Hutton's\040vireo
- 14 Warbling\040vireo
- 14 Red-eyed\040vireo
- 14 Cassin's\040vireo
- 22 Orange-crowned\040warbler
- 17 Nashville\040warbler
- 14 Yellow\040warbler
- 21 Yellow-rumped\040warbler
- 27 Black-throated\040gray\040warbler
- 18 Townsend's\040warbler
- 14 Hermit\040warbler
- 17 American\040redstart
- 20 Northern\040waterthrush
- 22 Macgillivray's\040warbler
- 19 Common\040yellowthroat
- 16 Wilson's\040warbler
- 20 Yellow-breasted\040chat
- 15 Western\040tanager
- 21 Black-headed\040grosbeak
- 14 Lazuli\040bunting
- 19 Green-tailed\040towhee
- 17 California\040towhee
- 14 Spotted\040towhee
- 16 Chipping\040sparrow
- 16 Brewer's\040sparrow
- 21 Black-chinned\040sparrow
- 14 Vesper\040sparrow
- 12 Lark\040sparrow
- 22 Black-throated\040sparrow
- 12 Sage\040sparrow
- 16 Savannah\040sparrow
- 19 Grasshopper\040sparrow
- 11 Fox\040sparrow
- 12 Song\040sparrow
- 17 Lincoln's\040sparrow
- 21 White-crowned\040sparrow
- 15 Dark-eyed\040junco
- 8 Bobolink
- 20 Red-winged\040blackbird
- 20 Tricolored\040blackbird
- 18 Western\040meadowlark
- 23 Yellow-headed\040blackbird
- 18 Brewer's\040blackbird
- 20 Brown-headed\040cowbird
- 16 Bullock's\040oriole
- 16 Black\040rosy-finch
- 23 Gray-crowned\040rosy-finch
- 13 Pine\040grosbeak
- 12 Purple\040finch
- 14 Cassin's\040finch
- 11 House\040finch
- 13 Red\040crossbill
- 11 Pine\040siskin
- 16 Lesser\040goldfinch
- 18 American\040goldfinch
- 16 Evening\040grosbeak
--1
-
-2 0 0
-1 0 0
-3
--1
-16 0 0
-2
- 15 scientific.name
- 11 common.name
--1
-2 0 0
-1 0 0
-2
--1
-16 0 0
-248
- 10 ABNCA02010
- 10 ABNCA03010
- 10 ABNCA03020
- 10 ABNCA03030
- 10 ABNCA04010
- 10 ABNCA04020
- 10 ABNFC01010
- 10 ABNFD01020
- 10 ABNGA01020
- 10 ABNGA02010
- 10 ABNGA04010
- 10 ABNGA04040
- 10 ABNGA06030
- 10 ABNGA07010
- 10 ABNGA08010
- 10 ABNGA11010
- 10 ABNGE02020
- 10 ABNJB05030
- 10 ABNJB09010
- 10 ABNJB10010
- 10 ABNJB10060
- 10 ABNJB10110
- 10 ABNJB10130
- 10 ABNJB10140
- 10 ABNJB10150
- 10 ABNJB10160
- 10 ABNJB10180
- 10 ABNJB11020
- 10 ABNJB11030
- 10 ABNJB11040
- 10 ABNJB11070
- 10 ABNJB15010
- 10 ABNJB18020
- 10 ABNJB18030
- 10 ABNJB20010
- 10 ABNJB21010
- 10 ABNJB22010
- 10 ABNKA02010
- 10 ABNKC01010
- 10 ABNKC06010
- 10 ABNKC10010
- 10 ABNKC11010
- 10 ABNKC12020
- 10 ABNKC12040
- 10 ABNKC12060
- 10 ABNKC19030
- 10 ABNKC19070
- 10 ABNKC19110
- 10 ABNKC19120
- 10 ABNKC22010
- 10 ABNKD06020
- 10 ABNKD06070
- 10 ABNKD06090
- 10 ABNLC09010
- 10 ABNLC09020
- 10 ABNLC11010
- 10 ABNLC12010
- 10 ABNLC23040
- 10 ABNLC24010
- 10 ABNME01010
- 10 ABNME05030
- 10 ABNME08020
- 10 ABNME14020
- 10 ABNMK01010
- 10 ABNNB03030
- 10 ABNNB03060
- 10 ABNNB03090
- 10 ABNND01010
- 10 ABNND02010
- 10 ABNNF01020
- 10 ABNNF01070
- 10 ABNNF02010
- 10 ABNNF04020
- 10 ABNNF06010
- 10 ABNNF07070
- 10 ABNNF11050
- 10 ABNNF11100
- 10 ABNNF18010
- 10 ABNNF20010
- 10 ABNNM03020
- 10 ABNNM03050
- 10 ABNNM03090
- 10 ABNNM03100
- 10 ABNNM03110
- 10 ABNNM08020
- 10 ABNNM08090
- 10 ABNNM10020
- 10 ABNNN06010
- 10 ABNPB01080
- 10 ABNPB04040
- 10 ABNRB02020
- 10 ABNSA01010
- 10 ABNSB01020
- 10 ABNSB01040
- 10 ABNSB05010
- 10 ABNSB08010
- 10 ABNSB10010
- 10 ABNSB12010
- 10 ABNSB12020
- 10 ABNSB12040
- 10 ABNSB13010
- 10 ABNSB13040
- 10 ABNSB15010
- 10 ABNSB15020
- 10 ABNTA02020
- 10 ABNTA04010
- 10 ABNUA01010
- 10 ABNUA03020
- 10 ABNUA06010
- 10 ABNUC45020
- 10 ABNUC47010
- 10 ABNUC48010
- 10 ABNUC51010
- 10 ABNUC51020
- 10 ABNUC51030
- 10 ABNXD01020
- 10 ABNYF04010
- 10 ABNYF04050
- 10 ABNYF05020
- 10 ABNYF05030
- 10 ABNYF05040
- 10 ABNYF07030
- 10 ABNYF07040
- 10 ABNYF07070
- 10 ABNYF07080
- 10 ABNYF07090
- 10 ABNYF10020
- 10 ABNYF12020
- 10 ABPAE32010
- 10 ABPAE32050
- 10 ABPAE33040
- 10 ABPAE33070
- 10 ABPAE33080
- 10 ABPAE33090
- 10 ABPAE33100
- 10 ABPAE33120
- 10 ABPAE33160
- 10 ABPAE35010
- 10 ABPAE35030
- 10 ABPAE43050
- 10 ABPAE52050
- 10 ABPAE52060
- 10 ABPAT02010
- 10 ABPAU01010
- 10 ABPAU03010
- 10 ABPAU03040
- 10 ABPAU07010
- 10 ABPAU08010
- 10 ABPAU09010
- 10 ABPAU09030
- 10 ABPAV01010
- 10 ABPAV02010
- 10 ABPAV06040
- 10 ABPAV07010
- 10 ABPAV08010
- 10 ABPAV09010
- 10 ABPAV10010
- 10 ABPAV10110
- 10 ABPAW01010
- 10 ABPAW01040
- 10 ABPAW01070
- 10 ABPAW01100
- 10 ABPAY01010
- 10 ABPAZ01010
- 10 ABPAZ01020
- 10 ABPAZ01030
- 10 ABPBA01010
- 10 ABPBG03010
- 10 ABPBG04010
- 10 ABPBG07010
- 10 ABPBG09010
- 10 ABPBG09050
- 10 ABPBG10020
- 10 ABPBH01010
- 10 ABPBJ05010
- 10 ABPBJ05020
- 10 ABPBJ08010
- 10 ABPBJ15020
- 10 ABPBJ15030
- 10 ABPBJ16010
- 10 ABPBJ18080
- 10 ABPBJ18100
- 10 ABPBJ18110
- 10 ABPBJ20170
- 10 ABPBJ22010
- 10 ABPBJ26010
- 10 ABPBK01010
- 10 ABPBK03010
- 10 ABPBK04010
- 10 ABPBM02050
- 10 ABPBN01020
- 10 ABPBR01030
- 10 ABPBW01190
- 10 ABPBW01210
- 10 ABPBW01240
- 10 ABPBW01290
- 10 ABPBX01050
- 10 ABPBX01060
- 10 ABPBX03010
- 10 ABPBX03060
- 10 ABPBX03070
- 10 ABPBX03080
- 10 ABPBX03090
- 10 ABPBX06010
- 10 ABPBX10020
- 10 ABPBX11040
- 10 ABPBX12010
- 10 ABPBX16020
- 10 ABPBX24010
- 10 ABPBX45050
- 10 ABPBX61040
- 10 ABPBX64020
- 10 ABPBX74010
- 10 ABPBX74070
- 10 ABPBX74080
- 10 ABPBX94020
- 10 ABPBX94040
- 10 ABPBX94070
- 10 ABPBX95010
- 10 ABPBX96010
- 10 ABPBX97010
- 10 ABPBX97020
- 10 ABPBX99010
- 10 ABPBXA0020
- 10 ABPBXA2010
- 10 ABPBXA3010
- 10 ABPBXA3020
- 10 ABPBXA4040
- 10 ABPBXA5020
- 10 ABPBXA9010
- 10 ABPBXB0010
- 10 ABPBXB0020
- 10 ABPBXB2030
- 10 ABPBXB3010
- 10 ABPBXB5020
- 10 ABPBXB7030
- 10 ABPBXB9220
- 10 ABPBY02010
- 10 ABPBY02030
- 10 ABPBY03010
- 10 ABPBY04020
- 10 ABPBY04030
- 10 ABPBY04040
- 10 ABPBY05010
- 10 ABPBY06030
- 10 ABPBY06090
- 10 ABPBY06110
- 10 ABPBY09020
--1
-2 0 0
-1 0 0
+Sora
+9
+13
+American\040coot
+9
+14
+Sandhill\040crane
+9
+12
+Snowy\040plover
+9
+19
+Semipalmated\040plover
+9
+8
+Killdeer
+9
+18
+Black-necked\040stilt
+9
+15
+American\040avocet
+9
+18
+Greater\040yellowlegs
+9
+18
+Solitary\040sandpiper
+9
+6
+Willet
+9
+17
+Spotted\040sandpiper
+9
+16
+Upland\040sandpiper
+9
+18
+Long-billed\040curlew
+9
+17
+Western\040sandpiper
+9
+15
+Least\040sandpiper
+9
+12
+Common\040snipe
+9
+18
+Wilson\'s\040phalarope
+9
+15
+Franklin\'s\040gull
+9
+16
+Bonaparte\'s\040gull
+9
+8
+Mew\040gull
+9
+16
+Ring-billed\040gull
+9
+15
+California\040gull
+9
+12
+Caspian\040tern
+9
+14
+Forster\'s\040tern
+9
+10
+Black\040tern
+9
+16
+Marbled\040murrelet
+9
+18
+Band-tailed\040pigeon
+9
+13
+Mourning\040dove
+9
+20
+Yellow-billed\040cuckoo
+9
+8
+Barn\040owl
+9
+15
+Flammulated\040owl
+9
+19
+Western\040screech-owl
+9
+16
+Great\040horned\040owl
+9
+18
+Northern\040pygmy-owl
+9
+13
+Burrowing\040owl
+9
+11
+Spotted\040owl
+9
+10
+Barred\040owl
+9
+14
+Great\040gray\040owl
+9
+14
+Long-eared\040owl
+9
+15
+Short-eared\040owl
+9
+10
+Boreal\040owl
+9
+21
+Northern\040saw-whet\040owl
+9
+16
+Common\040nighthawk
+9
+15
+Common\040poorwill
+9
+11
+Black\040swift
+9
+12
+Vaux\'s\040swift
+9
+20
+White-throated\040swift
+9
+25
+Black-chinned\040hummingbird
+9
+18
+Anna\'s\040hummingbird
+9
+20
+Calliope\040hummingbird
+9
+24
+Broad-tailed\040hummingbird
+9
+18
+Rufous\040hummingbird
+9
+19
+Allen\'s\040hummingbird
+9
+17
+Belted\040kingfisher
+9
+17
+Lewis\'\040woodpecker
+9
+16
+Acorn\040woodpecker
+9
+22
+Red-breasted\040sapsucker
+9
+22
+Williamson\'s\040sapsucker
+9
+19
+Red-naped\040sapsucker
+9
+16
+Downy\040woodpecker
+9
+16
+Hairy\040woodpecker
+9
+23
+White-headed\040woodpecker
+9
+21
+Three-toed\040woodpecker
+9
+23
+Black-backed\040woodpecker
+9
+16
+Northern\040flicker
+9
+19
+Pileated\040woodpecker
+9
+22
+Olive-sided\040flycatcher
+9
+18
+Western\040wood-pewee
+9
+17
+Willow\040flycatcher
+9
+16
+Least\040flycatcher
+9
+20
+Hammond\'s\040flycatcher
+9
+16
+Dusky\040flycatcher
+9
+15
+Gray\040flycatcher
+9
+24
+Pacific-slope\040flycatcher
+9
+22
+Cordilleran\040flycatcher
+9
+12
+Black\040phoebe
+9
+12
+Say\'s\040phoebe
+9
+23
+Ash-throated\040flycatcher
+9
+16
+Western\040kingbird
+9
+16
+Eastern\040kingbird
+9
+11
+Horned\040lark
+9
+13
+Purple\040martin
+9
+12
+Tree\040swallow
+9
+20
+Violet-green\040swallow
+9
+29
+Northern\040rough-winged\040swallow
+9
+12
+Bank\040swallow
+9
+13
+Cliff\040swallow
+9
+12
+Barn\040swallow
+9
+8
+Gray\040jay
+9
+13
+Steller\'s\040jay
+9
+9
+Scrub\040jay
+9
+10
+Pinyon\040jay
+9
+18
+Clark\'s\040nutcracker
+9
+19
+Black-billed\040magpie
+9
+13
+American\040crow
+9
+12
+Common\040raven
+9
+22
+Black-capped\040chickadee
+9
+18
+Mountain\040chickadee
+9
+25
+Chestnut-backed\040chickadee
+9
+14
+Plain\040titmouse
+9
+7
+Bushtit
+9
+21
+Red-breasted\040nuthatch
+9
+23
+White-breasted\040nuthatch
+9
+14
+Pygmy\040nuthatch
+9
+13
+Brown\040creeper
+9
+9
+Rock\040wren
+9
+11
+Canyon\040wren
+9
+13
+Bewick\'s\040wren
+9
+10
+House\040wren
+9
+11
+Winter\040wren
+9
+10
+Marsh\040wren
+9
+15
+American\040dipper
+9
+22
+Golden-crowned\040kinglet
+9
+20
+Ruby-crowned\040kinglet
+9
+21
+Blue-gray\040gnatcatcher
+9
+16
+Western\040bluebird
+9
+17
+Mountain\040bluebird
+9
+20
+Townsend\'s\040solitaire
+9
+5
+Veery
+9
+17
+Swainson\'s\040thrush
+9
+13
+Hermit\040thrush
+9
+14
+American\040robin
+9
+13
+Varied\040thrush
+9
+7
+Wrentit
+9
+12
+Gray\040catbird
+9
+20
+Northern\040mockingbird
+9
+13
+Sage\040thrasher
+9
+14
+American\040pipit
+9
+13
+Cedar\040waxwing
+9
+17
+Loggerhead\040shrike
+9
+14
+Hutton\'s\040vireo
+9
+14
+Warbling\040vireo
+9
+14
+Red-eyed\040vireo
+9
+14
+Cassin\'s\040vireo
+9
+22
+Orange-crowned\040warbler
+9
+17
+Nashville\040warbler
+9
+14
+Yellow\040warbler
+9
+21
+Yellow-rumped\040warbler
+9
+27
+Black-throated\040gray\040warbler
+9
+18
+Townsend\'s\040warbler
+9
+14
+Hermit\040warbler
+9
+17
+American\040redstart
+9
+20
+Northern\040waterthrush
+9
+22
+Macgillivray\'s\040warbler
+9
+19
+Common\040yellowthroat
+9
+16
+Wilson\'s\040warbler
+9
+20
+Yellow-breasted\040chat
+9
+15
+Western\040tanager
+9
+21
+Black-headed\040grosbeak
+9
+14
+Lazuli\040bunting
+9
+19
+Green-tailed\040towhee
+9
+17
+California\040towhee
+9
+14
+Spotted\040towhee
+9
+16
+Chipping\040sparrow
+9
+16
+Brewer\'s\040sparrow
+9
+21
+Black-chinned\040sparrow
+9
+14
+Vesper\040sparrow
+9
+12
+Lark\040sparrow
+9
+22
+Black-throated\040sparrow
+9
+12
+Sage\040sparrow
+9
+16
+Savannah\040sparrow
+9
+19
+Grasshopper\040sparrow
+9
+11
+Fox\040sparrow
+9
+12
+Song\040sparrow
+9
+17
+Lincoln\'s\040sparrow
+9
+21
+White-crowned\040sparrow
+9
+15
+Dark-eyed\040junco
+9
+8
+Bobolink
+9
+20
+Red-winged\040blackbird
+9
+20
+Tricolored\040blackbird
+9
+18
+Western\040meadowlark
+9
+23
+Yellow-headed\040blackbird
+9
+18
+Brewer\'s\040blackbird
+9
+20
+Brown-headed\040cowbird
+9
+16
+Bullock\'s\040oriole
+9
+16
+Black\040rosy-finch
+9
+23
+Gray-crowned\040rosy-finch
+9
+13
+Pine\040grosbeak
+9
+12
+Purple\040finch
+9
+14
+Cassin\'s\040finch
+9
+11
+House\040finch
+9
+13
+Red\040crossbill
+9
+11
+Pine\040siskin
+9
+16
+Lesser\040goldfinch
+9
+18
+American\040goldfinch
+9
+16
+Evening\040grosbeak
+1026
 1
--1
-16 0 0
+4105
+5
+names
+16
+2
+9
+15
+scientific.name
+9
+11
+common.name
+1026
 1
- 10 data.frame
--1
--1
--1
--1
--1
--1
--1
+4105
+9
+row.names
+16
+248
+9
+10
+ABNCA02010
+9
+10
+ABNCA03010
+9
+10
+ABNCA03020
+9
+10
+ABNCA03030
+9
+10
+ABNCA04010
+9
+10
+ABNCA04020
+9
+10
+ABNFC01010
+9
+10
+ABNFD01020
+9
+10
+ABNGA01020
+9
+10
+ABNGA02010
+9
+10
+ABNGA04010
+9
+10
+ABNGA04040
+9
+10
+ABNGA06030
+9
+10
+ABNGA07010
+9
+10
+ABNGA08010
+9
+10
+ABNGA11010
+9
+10
+ABNGE02020
+9
+10
+ABNJB05030
+9
+10
+ABNJB09010
+9
+10
+ABNJB10010
+9
+10
+ABNJB10060
+9
+10
+ABNJB10110
+9
+10
+ABNJB10130
+9
+10
+ABNJB10140
+9
+10
+ABNJB10150
+9
+10
+ABNJB10160
+9
+10
+ABNJB10180
+9
+10
+ABNJB11020
+9
+10
+ABNJB11030
+9
+10
+ABNJB11040
+9
+10
+ABNJB11070
+9
+10
+ABNJB15010
+9
+10
+ABNJB18020
+9
+10
+ABNJB18030
+9
+10
+ABNJB20010
+9
+10
+ABNJB21010
+9
+10
+ABNJB22010
+9
+10
+ABNKA02010
+9
+10
+ABNKC01010
+9
+10
+ABNKC06010
+9
+10
+ABNKC10010
+9
+10
+ABNKC11010
+9
+10
+ABNKC12020
+9
+10
+ABNKC12040
+9
+10
+ABNKC12060
+9
+10
+ABNKC19030
+9
+10
+ABNKC19070
+9
+10
+ABNKC19110
+9
+10
+ABNKC19120
+9
+10
+ABNKC22010
+9
+10
+ABNKD06020
+9
+10
+ABNKD06070
+9
+10
+ABNKD06090
+9
+10
+ABNLC09010
+9
+10
+ABNLC09020
+9
+10
+ABNLC11010
+9
+10
+ABNLC12010
+9
+10
+ABNLC23040
+9
+10
+ABNLC24010
+9
+10
+ABNME01010
+9
+10
+ABNME05030
+9
+10
+ABNME08020
+9
+10
+ABNME14020
+9
+10
+ABNMK01010
+9
+10
+ABNNB03030
+9
+10
+ABNNB03060
+9
+10
+ABNNB03090
+9
+10
+ABNND01010
+9
+10
+ABNND02010
+9
+10
+ABNNF01020
+9
+10
+ABNNF01070
+9
+10
+ABNNF02010
+9
+10
+ABNNF04020
+9
+10
+ABNNF06010
+9
+10
+ABNNF07070
+9
+10
+ABNNF11050
+9
+10
+ABNNF11100
+9
+10
+ABNNF18010
+9
+10
+ABNNF20010
+9
+10
+ABNNM03020
+9
+10
+ABNNM03050
+9
+10
+ABNNM03090
+9
+10
+ABNNM03100
+9
+10
+ABNNM03110
+9
+10
+ABNNM08020
+9
+10
+ABNNM08090
+9
+10
+ABNNM10020
+9
+10
+ABNNN06010
+9
+10
+ABNPB01080
+9
+10
+ABNPB04040
+9
+10
+ABNRB02020
+9
+10
+ABNSA01010
+9
+10
+ABNSB01020
+9
+10
+ABNSB01040
+9
+10
+ABNSB05010
+9
+10
+ABNSB08010
+9
+10
+ABNSB10010
+9
+10
+ABNSB12010
+9
+10
+ABNSB12020
+9
+10
+ABNSB12040
+9
+10
+ABNSB13010
+9
+10
+ABNSB13040
+9
+10
+ABNSB15010
+9
+10
+ABNSB15020
+9
+10
+ABNTA02020
+9
+10
+ABNTA04010
+9
+10
+ABNUA01010
+9
+10
+ABNUA03020
+9
+10
+ABNUA06010
+9
+10
+ABNUC45020
+9
+10
+ABNUC47010
+9
+10
+ABNUC48010
+9
+10
+ABNUC51010
+9
+10
+ABNUC51020
+9
+10
+ABNUC51030
+9
+10
+ABNXD01020
+9
+10
+ABNYF04010
+9
+10
+ABNYF04050
+9
+10
+ABNYF05020
+9
+10
+ABNYF05030
+9
+10
+ABNYF05040
+9
+10
+ABNYF07030
+9
+10
+ABNYF07040
+9
+10
+ABNYF07070
+9
+10
+ABNYF07080
+9
+10
+ABNYF07090
+9
+10
+ABNYF10020
+9
+10
+ABNYF12020
+9
+10
+ABPAE32010
+9
+10
+ABPAE32050
+9
+10
+ABPAE33040
+9
+10
+ABPAE33070
+9
+10
+ABPAE33080
+9
+10
+ABPAE33090
+9
+10
+ABPAE33100
+9
+10
+ABPAE33120
+9
+10
+ABPAE33160
+9
+10
+ABPAE35010
+9
+10
+ABPAE35030
+9
+10
+ABPAE43050
+9
+10
+ABPAE52050
+9
+10
+ABPAE52060
+9
+10
+ABPAT02010
+9
+10
+ABPAU01010
+9
+10
+ABPAU03010
+9
+10
+ABPAU03040
+9
+10
+ABPAU07010
+9
+10
+ABPAU08010
+9
+10
+ABPAU09010
+9
+10
+ABPAU09030
+9
+10
+ABPAV01010
+9
+10
+ABPAV02010
+9
+10
+ABPAV06040
+9
+10
+ABPAV07010
+9
+10
+ABPAV08010
+9
+10
+ABPAV09010
+9
+10
+ABPAV10010
+9
+10
+ABPAV10110
+9
+10
+ABPAW01010
+9
+10
+ABPAW01040
+9
+10
+ABPAW01070
+9
+10
+ABPAW01100
+9
+10
+ABPAY01010
+9
+10
+ABPAZ01010
+9
+10
+ABPAZ01020
+9
+10
+ABPAZ01030
+9
+10
+ABPBA01010
+9
+10
+ABPBG03010
+9
+10
+ABPBG04010
+9
+10
+ABPBG07010
+9
+10
+ABPBG09010
+9
+10
+ABPBG09050
+9
+10
+ABPBG10020
+9
+10
+ABPBH01010
+9
+10
+ABPBJ05010
+9
+10
+ABPBJ05020
+9
+10
+ABPBJ08010
+9
+10
+ABPBJ15020
+9
+10
+ABPBJ15030
+9
+10
+ABPBJ16010
+9
+10
+ABPBJ18080
+9
+10
+ABPBJ18100
+9
+10
+ABPBJ18110
+9
+10
+ABPBJ20170
+9
+10
+ABPBJ22010
+9
+10
+ABPBJ26010
+9
+10
+ABPBK01010
+9
+10
+ABPBK03010
+9
+10
+ABPBK04010
+9
+10
+ABPBM02050
+9
+10
+ABPBN01020
+9
+10
+ABPBR01030
+9
+10
+ABPBW01190
+9
+10
+ABPBW01210
+9
+10
+ABPBW01240
+9
+10
+ABPBW01290
+9
+10
+ABPBX01050
+9
+10
+ABPBX01060
+9
+10
+ABPBX03010
+9
+10
+ABPBX03060
+9
+10
+ABPBX03070
+9
+10
+ABPBX03080
+9
+10
+ABPBX03090
+9
+10
+ABPBX06010
+9
+10
+ABPBX10020
+9
+10
+ABPBX11040
+9
+10
+ABPBX12010
+9
+10
+ABPBX16020
+9
+10
+ABPBX24010
+9
+10
+ABPBX45050
+9
+10
+ABPBX61040
+9
+10
+ABPBX64020
+9
+10
+ABPBX74010
+9
+10
+ABPBX74070
+9
+10
+ABPBX74080
+9
+10
+ABPBX94020
+9
+10
+ABPBX94040
+9
+10
+ABPBX94070
+9
+10
+ABPBX95010
+9
+10
+ABPBX96010
+9
+10
+ABPBX97010
+9
+10
+ABPBX97020
+9
+10
+ABPBX99010
+9
+10
+ABPBXA0020
+9
+10
+ABPBXA2010
+9
+10
+ABPBXA3010
+9
+10
+ABPBXA3020
+9
+10
+ABPBXA4040
+9
+10
+ABPBXA5020
+9
+10
+ABPBXA9010
+9
+10
+ABPBXB0010
+9
+10
+ABPBXB0020
+9
+10
+ABPBXB2030
+9
+10
+ABPBXB3010
+9
+10
+ABPBXB5020
+9
+10
+ABPBXB7030
+9
+10
+ABPBXB9220
+9
+10
+ABPBY02010
+9
+10
+ABPBY02030
+9
+10
+ABPBY03010
+9
+10
+ABPBY04020
+9
+10
+ABPBY04030
+9
+10
+ABPBY04040
+9
+10
+ABPBY05010
+9
+10
+ABPBY06030
+9
+10
+ABPBY06090
+9
+10
+ABPBY06110
+9
+10
+ABPBY09020
+1026
+1
+4105
+5
+class
+16
+1
+9
+10
+data.frame
+254
+254

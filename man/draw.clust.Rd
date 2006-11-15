@@ -2,15 +2,17 @@
 \alias{draw.clust}
 \title{Graph a Hierarchical Cluster Tree}
 \description{
-  Graph a hierarchical cluster tree of class \code{twins}
-  or \code{hclust} using colored symbols at observations.
+ Graph a hierarchical cluster tree of class \code{twins}
+ or \code{hclust} using colored symbols at observations.
 }
 \usage{
-  draw.clust (cluster, cex=par("cex"), pch=par("pch"), size=2.5*cex, 
-      col=NULL, nodeinfo=FALSE, membership=FALSE, cases="obs", new=TRUE)
+  draw.clust (cluster, data=NULL, cex=par("cex"), pch=par("pch"), 
+      size=2.5*cex, col=NULL, nodeinfo=FALSE, membership=FALSE, 
+      cases="obs", new=TRUE)
 }
 \arguments{
   \item{cluster}{object of class \code{hclust} or \code{twins}.}
+  \item{data}{data object used for clustering.}
   \item{cex}{size of text, par parameter.}
   \item{pch}{shape of symbol at leaves, par parameter.}
   \item{size}{size in cex units of symbol at leaves.}
@@ -23,7 +25,7 @@
   \item{new}{if \code{TRUE}, call \code{\link{plot.new}}.}
 }
 \details{
-  An alternative to \code{\link{pltree}} and \code{\link{plot.hclust}}.
+ An alternative to \code{\link{pltree}} and \code{\link{plot.hclust}}.
 }
 \value{The vector of colors supplied or generated.}
 \author{Denis White, \email{white.denis@epa.gov} }

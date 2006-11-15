@@ -2,9 +2,9 @@
 \alias{clip.rpart}
 \title{Prunes an Rpart Classification or Regression Tree}
 \description{
-  Reduces a prediction tree produced by \code{\link{rpart}} to a
-  smaller tree by specifying either a cost-complexity parameter,
-  or a number of nodes to which to prune.
+ Reduces a prediction tree produced by \code{\link{rpart}} to a
+ smaller tree by specifying either a cost-complexity parameter,
+ or a number of nodes to which to prune.
 }
 \usage{
   clip.rpart (tree, cp=NULL, best=NULL)
@@ -18,9 +18,9 @@
   \code{cp} is used.
 }
 \details{
-  A minor enhancement of the existing \code{\link{prune.rpart}} to
-  incorporate the parameter \code{best} as it is used in
-  \code{\link[tree]{prune.tree}}.  See example.
+ A minor enhancement of the existing \code{\link{prune.rpart}} to
+ incorporate the parameter \code{best} as it is used in
+ \code{\link[tree]{prune.tree}}.  See example.
 }
 \value{Pruned tree object of class \code{rpart}.}
 \author{Denis White, \email{white.denis@epa.gov} }

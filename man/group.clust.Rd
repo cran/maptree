@@ -2,8 +2,8 @@
 \alias{group.clust}
 \title{Observation Groups for a Hierarchical Cluster Tree}
 \description{
-  Alternative to \code{\link{cutree}} that orders pruned groups from
-  left to right in draw order.
+ Alternative to \code{\link{cutree}} that orders pruned groups from
+ left to right in draw order.
 }
 \usage{
   group.clust (cluster, k=NULL, h=NULL)
@@ -13,11 +13,11 @@
   \item{k}{desired number of groups.}
   \item{h}{height at which to prune for grouping.}
 
-  At least one of \code{k} or \code{h} must be specified; \code{k} takes
-  precedence if both are given.
+ At least one of \code{k} or \code{h} must be specified; \code{k} takes
+ precedence if both are given.
 }
 \details{
-  Normally used with \code{\link{map.groups}}.  See example.
+ Normally used with \code{\link{map.groups}}.  See example.
 }
 \value{Vector of pruned cluster membership} 
 \author{Denis White, \email{white.denis@epa.gov} }

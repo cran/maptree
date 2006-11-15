@@ -2,31 +2,31 @@
 \alias{oregon.bird.names}
 \title{Names of Bird Species in Oregon, USA}
 \description{
-  Scientific and common names for 248 native breeding bird species
-  in Oregon, USA.
+ Scientific and common names for 248 native breeding bird species
+ in Oregon, USA.
 }
 \usage{data (oregon.bird.names)}
 \format{A data frame with 248 rows and 2 columns.}
 \details{
-  Row names are species element codes.  Columns are
-  \code{"scientific.name"} and \code{"common.name"}.
-  Data are provided by The Nature Conservancy (TNC),
-  the Oregon Natural Heritage Program (ONHP), and
-  NatureServe.
+ Row names are species element codes.  Columns are
+ \code{"scientific.name"} and \code{"common.name"}.
+ Data are provided by The Nature Conservancy (TNC),
+ the Oregon Natural Heritage Program (ONHP), and
+ NatureServe.
 }
 \source{Denis White, \email{white.denis@epa.gov} }
 \references{
-  Master, L. (1996) Predicting distributions for vertebrate
-  species: some observations, \emph{Gap Analysis: A Landscape
-  Approach to Biodiversity Planning}, Scott, J.M., Tear, T.H.,
-  and Davis, F.W., editors, American Society for Photogrammetry
-  and Remote Sensing, Bethesda, MD, pp. 171-176.
+ Master, L. (1996) Predicting distributions for vertebrate
+ species: some observations, \emph{Gap Analysis: A Landscape
+ Approach to Biodiversity Planning}, Scott, J.M., Tear, T.H.,
+ and Davis, F.W., editors, American Society for Photogrammetry
+ and Remote Sensing, Bethesda, MD, pp. 171-176.
 
-  TNC, \url{http://nature.org/}
+ TNC, \url{http://nature.org/}
 
-  ONHP, \url{http://natureserve.org/nhp/us/or/}
+ ONHP, \url{http://oregonstate.edu/ornhic/ornhp.html}
 
-  NatureServe, \url{http://natureserve.org/}
+ NatureServe, \url{http://natureserve.org/}
 }
 \seealso{
   \code{\link{oregon.bird.dist}}

@@ -2,8 +2,8 @@
 \alias{group.tree}
 \title{Observation Groups for Classification or Regression Tree}
 \description{
-  Alternative to \code{tree[["where"]]} that orders groups from left
-  to right in draw order.
+ Alternative to \code{tree[["where"]]} that orders groups from left
+ to right in draw order.
 }
 \usage{
   group.tree (tree)
@@ -12,7 +12,7 @@
   \item{tree}{object of class \code{rpart} or \code{tree}.}
 }
 \details{
-  Normally used with \code{\link{map.groups}}.  See example.
+ Normally used with \code{\link{map.groups}}.  See example.
 }
 \value{Vector of rearranged \code{tree[["where"]]}} 
 \author{Denis White, \email{white.denis@epa.gov} }

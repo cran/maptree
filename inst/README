@@ -1,5 +1,15 @@
 Changes in contributed package maptree:
 
+1.4-3, 15 November 2006
+
+* fixed clip.clust and draw.clust to require data from hclust 
+  objects (that had disappeared in recent releases), and 
+  changed help files accordingly (thanks to Mikkel Grum)
+
+* removed dependence on package combinat in function kgs() as 
+  function combn() is now part of standard package utils, and 
+  changed help file accordingly
+
 1.4-2, 10 February 2006
 
 * fixed draw.tree to correctly label nodes when only one  
@@ -7,7 +17,7 @@ Changes in contributed package maptree:
 
 1.4-1, 7 January 2006
 
-* changed prune.clust to clip.clust and prune.Rpart to prune.rpart
+* changed prune.clust to clip.clust and prune.rpart to clip.rpart
   to avoid non-generic function warning
 
 * added export and import to NAMESPACE

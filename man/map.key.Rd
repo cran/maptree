@@ -2,7 +2,7 @@
 \alias{map.key}
 \title{Draw Key to accompany Map of Groups}
 \description{
-  Draws legends for maps of groups of observations.
+ Draws legends for maps of groups of observations.
 }
 \usage{
   map.key (x, y, labels=NULL, cex=par("cex"), pch=par("pch"),
@@ -26,8 +26,8 @@
   \item{new}{if \code{TRUE}, call \code{\link{plot}}.}
 }
 \details{
-  Uses \code{\link{points}} or \code{\link{ngon}}, depending on value of
-  \code{pch}, to draw shaded polygon symbols for key.
+ Uses \code{\link{points}} or \code{\link{ngon}}, depending on value of
+ \code{pch}, to draw shaded polygon symbols for key.
 }
 \value{The vector of colors supplied or generated.}
 \author{Denis White, \email{white.denis@epa.gov} }

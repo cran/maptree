@@ -1,17 +1,17 @@
 # maptree package
 #   for graphing and mapping of hierarchical clustering and
 #   regression trees
-# denis white, us epa, 7 January 2006, version 1.4-1
+# denis white, us epa, 15 November 2006, version 1.4-3
 #
 # function calls
 #
 ############################################################
 #
-# clip.clust <- function (cluster, k=NULL, h=NULL)
+# clip.clust <- function (cluster, data=NULL, k=NULL, h=NULL)
 #
 # clip.rpart <- function (tree, cp=NULL, best=NULL) 
 #
-# draw.clust <- function (cluster, cex=par("cex"), 
+# draw.clust <- function (cluster, data=NULL, cex=par("cex"), 
 #     pch=par("pch"), size=2.5*cex, col=NULL, nodeinfo=FALSE, 
 #     membership=FALSE, cases="obs", new=TRUE)
 #
@@ -40,9 +40,10 @@
 
 ############################################################
 
-clip.clust <- function (cluster, k=NULL, h=NULL)
+clip.clust <- function (cluster, data = NULL, k=NULL, h=NULL)
   # analogous to prune.tree
   # cluster is class hclust or twins
+  # data is clustered dataset (provided by twins but not hclust)
   # k is desired number of groups
   # h is height at which to cut for grouping
   # needs k or h, k takes precedence
@@ -51,10 +52,15 @@ clip.clust <- function (cluster, k=NULL, h=NULL)
   if (is.null (h) && is.null (k))
     stop ("clip.clust: both h=NULL, k=NULL")
   if (!is.null (h) && h > max (cluster$height)) 
-    stop("clip.clust: h > max (height)")
+    stop ("clip.clust: h > max (height)")
   if (!is.null (k) && (k == 1 || k > length (cluster$height)))
     stop("clip.clust: k==1 || k=>nobs")
-  if ("hclust" %in% class (cluster)) clust <- cluster
+  if ("hclust" %in% class (cluster)) 
+  {
+    if (is.null (data))
+      stop ("clip.clust: no data provided for hclust object")
+    clust <- cluster
+  }
   else if (inherits (cluster, "twins"))
     clust <- twins.to.hclust (cluster)
     # clust <- as.hclust (cluster)
@@ -98,7 +104,8 @@ clip.clust <- function (cluster, k=NULL, h=NULL)
   nuordr <- as.double (seq (nrow (numerg) + 1))
   nulabl <- as.character (nuordr)
   g <- group.clust (clust, k, h)
-  m <- split (dimnames (clust$data) [[1]], as.factor (g))
+  if ("twins" %in% class(cluster)) data <- clust$data
+  m <- split (rownames (data), as.factor (g))
   l <- list (merge=numerg, height=nuhite, order=nuordr, labels=nulabl,
     method=clust$method, call=clust$call, dist.method=clust$dist.method,
     size=table (g), membership=m)
@@ -131,10 +138,11 @@ clip.rpart <- function (tree, cp=NULL, best=NULL)
 
 ############################################################
 
-draw.clust <- function (cluster, cex=par("cex"), 
+draw.clust <- function (cluster, data=NULL, cex=par("cex"), 
   pch=par("pch"), size=2.5*cex, col=NULL, nodeinfo=FALSE, 
   membership=FALSE, cases="obs", new=TRUE)
   # cluster is class hclust or twins
+  # data is clustered dataset (provided by twins but not hclust)
   # cex is par parameter, size of text
   # pch is par parameter, shape of symbol at leaves of tree
   # size is in cex units for symbol at leaves of tree
@@ -146,10 +154,22 @@ draw.clust <- function (cluster, cex=par("cex"),
   # if new=TRUE, call plot.new()
   # returned value is col or generated colors
 {
-  if ("hclust" %in% class (cluster)) clust <- cluster
+  if ("hclust" %in% class (cluster)) 
+  {
+    if (membership)
+      if (is.null (data)) 
+        if ("data" %in% names (cluster))
+          data <- cluster$data
+        else
+          stop ("draw.clust: no data provided for hclust object")
+    clust <- cluster
+  }
   else if (inherits (cluster, "twins")) 
-    clust <- twins.to.hclust (cluster)
+    {
     # clust <- as.hclust (cluster)
+    clust <- twins.to.hclust (cluster)
+    data <- clust$data
+    }
   else stop("draw.clust: input not hclust or twins")
   merg <- clust$merge
   nmerg <- nrow (merg)
@@ -575,8 +595,7 @@ kgs <- function (cluster, diss, alpha=1, maxclust=NULL)
   # alpha is weight for number of clusters
   # maxclust is maximum number of clusters to compute for;
   #   if NULL, use n-1
-  # needs {maptree} and {combinat}
-  #   (but 1.4-1 combinat no namespace so included here)
+  # needs {maptree}
   # this implementation of complexity O(n*n*maxclust);
   #   needs memory from level to level to cut down compares
   # ref: Kelley LA, Gardner SP, Sutcliffe MJ. 1996. An
