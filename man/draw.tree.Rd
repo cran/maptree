@@ -2,9 +2,9 @@
 \alias{draw.tree}
 \title{Graph a Classification or Regression Tree}
 \description{
- Graph a classification or regression tree with a hierarchical
- tree diagram, optionally including colored symbols at leaves
- and additional info at intermediate nodes.
+  Graph a classification or regression tree with a hierarchical
+  tree diagram, optionally including colored symbols at leaves 
+  and additional info at intermediate nodes.
 }
 \usage{
   draw.tree (tree, cex=par("cex"), pch=par("pch"), size=2.5*cex, 
@@ -33,17 +33,17 @@
   \item{new}{if \code{TRUE}, call \code{\link{plot.new}}.}
 }
 \details{
- As in \code{plot.rpart(,uniform=TRUE)}, each level has constant depth.
- Specifying \code{nodeinfo=TRUE}, shows the deviance explained or the
- classification rate at each node.
+  As in \code{plot.rpart(,uniform=TRUE)}, each level has constant depth.  
+  Specifying \code{nodeinfo=TRUE}, shows the deviance explained or the 
+  classification rate at each node.
 
- A split is shown, for numerical variables, as
- \code{variable <> value} when the cases with lower values go left, or as
- \code{variable >< value} when the cases with lower values go right.
- When the splitting variable is a factor, and print.levels=TRUE,
- the split is shown as \code{levels = factor = levels} with the cases
- on the left having factor levels equal to those on the left of the
- factor name, and correspondingly for the right.
+  A split is shown, for numerical variables, as 
+  \code{variable <> value} when the cases with lower values go left, or as 
+  \code{variable >< value} when the cases with lower values go right.
+  When the splitting variable is a factor, and print.levels=TRUE, 
+  the split is shown as \code{levels = factor = levels} with the cases 
+  on the left having factor levels equal to those on the left of the 
+  factor name, and correspondingly for the right.
 }
 \value{The vector of colors supplied or generated.}
 \author{Denis White, \email{white.denis@epa.gov} }

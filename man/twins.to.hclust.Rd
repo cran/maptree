@@ -2,7 +2,7 @@
 \alias{twins.to.hclust}
 \title{Converts agnes or diana object to hclust object}
 \description{
- Alternative to \code{\link{as.hclust}} that retains cluster data.
+  Alternative to \code{\link{as.hclust}} that retains cluster data.
 }
 \usage{
   twins.to.hclust (cluster)
@@ -12,8 +12,8 @@
 
 }
 \details{
- Used internally in with \code{\link{clip.clust}} and
- \code{\link{draw.clust}}.
+  Used internally in with \code{\link{clip.clust}} and 
+  \code{\link{draw.clust}}.
 }
 \value{hclust object} 
 \author{Denis White, \email{white.denis@epa.gov} }

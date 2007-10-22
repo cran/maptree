@@ -2,8 +2,8 @@
 \alias{ngon}
 \title{Outline or Fill a Regular Polygon}
 \description{
- Draws a regular polygon at specified coordinates as an
- outline or shaded.
+  Draws a regular polygon at specified coordinates as an
+  outline or shaded.
 }
 \usage{
   ngon (xydc, n=4, angle=0, type=1)
@@ -18,10 +18,10 @@
               \code{type=3} => both.}
 }
 \details{
- Uses \code{\link{polygon}} to draw shaded polygons and
- \code{\link{lines}} for outline.  If n is odd, there is
- a vertex at (0, d/2), otherwise the midpoint of a side is
- at (0, d/2).
+  Uses \code{\link{polygon}} to draw shaded polygons and
+  \code{\link{lines}} for outline.  If n is odd, there is
+  a vertex at (0, d/2), otherwise the midpoint of a side is
+  at (0, d/2).
 }
 \value{Invisible.}
 \author{Denis White, \email{white.denis@epa.gov} }

@@ -2,9 +2,9 @@
 \alias{map.groups}
 \title{Map Groups of Observations}
 \description{
- Draws maps of groups of observations created by clustering,
- classification or regression trees, or some other type of
- classification.
+  Draws maps of groups of observations created by clustering,
+  classification or regression trees, or some other type of
+  classification.
 }
 \usage{
   map.groups (pts, group, pch=par("pch"), size=2, col=NULL, 
@@ -27,16 +27,16 @@
   \item{new}{if \code{TRUE}, call \code{\link{plot.new}}.}
 }
 \details{
- If the number of rows of \code{pts} is not equal to the length
- of \code{group}, then (1) \code{pts} are assumed to represent
- polygons and \code{\link{polygon}} is used, (2) the identifiers in
- \code{group} are matched to the polygons in \code{pts} through
- \code{names(group)} and \code{pts$x[is.na(pts$y)]}, and (3) these
- identifiers are mapped to dense integers to reference colours.
- Otherwise, \code{group} is assumed to parallel \code{pts}, and,
- if \code{pch < 100}, then \code{\link{points}} is used, otherwise
- \code{\link{ngon}}, to draw shaded polygon symbols for each
- observation in pts.
+  If the number of rows of \code{pts} is not equal to the length
+  of \code{group}, then (1) \code{pts} are assumed to represent
+  polygons and \code{\link{polygon}} is used, (2) the identifiers in 
+  \code{group} are matched to the polygons in \code{pts} through 
+  \code{names(group)} and \code{pts$x[is.na(pts$y)]}, and (3) these
+  identifiers are mapped to dense integers to reference colours.
+  Otherwise, \code{group} is assumed to parallel \code{pts}, and,
+  if \code{pch < 100}, then \code{\link{points}} is used, otherwise
+  \code{\link{ngon}}, to draw shaded polygon symbols for each
+  observation in pts.
 }
 \value{The vector of fill colors supplied or generated.}
 \author{Denis White, \email{white.denis@epa.gov} }
