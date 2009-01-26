@@ -1,5 +1,10 @@
 Changes in contributed package maptree:
 
+1.4-5, 26 January 2009
+
+* changed map.tree.Rd to fix \code quote issue in response 
+  to request from CRAN
+
 1.4-4, 22 October 2007
 
 * changed License to "Unlimited" in DESCRIPTION in response 

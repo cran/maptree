@@ -14,9 +14,9 @@
   \item{labels}{vector of labels for classes, or if \code{NULL},
                 then integers \code{1:length(col)}, or \code{1}.}
   \item{size}{size in cex units of shaded key symbol.}
-  \item{pch}{symbol number from \code{par("pch")} if < 100, otherwise
+  \item{pch}{symbol number for \code{\link{par}} if < 100, otherwise
              parameter \code{n} for \code{\link{ngon}}.}
-  \item{cex}{pointsize of text, \code{par} parameter.}
+  \item{cex}{pointsize of text, \code{\link{par}} parameter.}
   \item{head}{text heading for key.}
   \item{sep}{separation in cex units between adjacent symbols in key.
              If \code{sep=0}, assume a continuous scale, use square
@@ -49,7 +49,7 @@
   map.key (0.2, 0.2, labels=as.character(round(cuts,0)), 
     col=kol, sep=0, head="key", new=TRUE)
 
-  # key for example in \code{help(group.tree)}
+  # key for example in help file for group.tree
   map.key (0.2, 0.2, labels=as.character(seq(6)), 
     pch=19, head="node", new=TRUE)
 }
