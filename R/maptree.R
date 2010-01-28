@@ -62,8 +62,14 @@ clip.clust <- function (cluster, data = NULL, k=NULL, h=NULL)
     clust <- cluster
   }
   else if (inherits (cluster, "twins"))
+  {
+    if (! ("data" %in% names (cluster)))
+      if (is.null (data)) 
+        stop ("clip.clust: no data provided for twins object")
+      else cluster$data <- data
     clust <- twins.to.hclust (cluster)
     # clust <- as.hclust (cluster)
+  }
   else
     stop("clip.clust: input not hclust or twins")
   merg <- clust$merge
@@ -108,7 +114,7 @@ clip.clust <- function (cluster, data = NULL, k=NULL, h=NULL)
   m <- split (rownames (data), as.factor (g))
   l <- list (merge=numerg, height=nuhite, order=nuordr, labels=nulabl,
     method=clust$method, call=clust$call, dist.method=clust$dist.method,
-    size=table (g), membership=m)
+    size=table (g), membership=m, data=data)
   class(l) <- class(clust)
   l
 }
@@ -140,7 +146,7 @@ clip.rpart <- function (tree, cp=NULL, best=NULL)
 
 draw.clust <- function (cluster, data=NULL, cex=par("cex"), 
   pch=par("pch"), size=2.5*cex, col=NULL, nodeinfo=FALSE, 
-  membership=FALSE, cases="obs", new=TRUE)
+  cases="obs", new=TRUE)
   # cluster is class hclust or twins
   # data is clustered dataset (provided by twins but not hclust)
   # cex is par parameter, size of text
@@ -149,27 +155,29 @@ draw.clust <- function (cluster, data=NULL, cex=par("cex"),
   # if col is NULL, use rainbow()
   # if nodeinfo==TRUE, add a line at each leaf with number
   #   of observations included in leaf
-  # if membership==TRUE, print members at leaves
   # cases are names for cluster objects
   # if new=TRUE, call plot.new()
   # returned value is col or generated colors
 {
   if ("hclust" %in% class (cluster)) 
   {
-    if (membership)
-      if (is.null (data)) 
-        if ("data" %in% names (cluster))
-          data <- cluster$data
-        else
-          stop ("draw.clust: no data provided for hclust object")
+    if (is.null (data)) 
+      if ("data" %in% names (cluster))
+        data <- cluster$data
+      else
+        stop ("draw.clust: no data provided for hclust object")
     clust <- cluster
   }
   else if (inherits (cluster, "twins")) 
-    {
-    # clust <- as.hclust (cluster)
+  {
+    if (! ("data" %in% names (cluster)))
+      if (is.null (data)) 
+        stop ("draw.clust: no data provided for twins object")
+      else cluster$data <- data
     clust <- twins.to.hclust (cluster)
+    # clust <- as.hclust (cluster)
     data <- clust$data
-    }
+  }
   else stop("draw.clust: input not hclust or twins")
   merg <- clust$merge
   nmerg <- nrow (merg)
@@ -223,14 +231,8 @@ draw.clust <- function (cluster, data=NULL, cex=par("cex"),
     else {
       x1 <- cord[-a]
       y1a <- y2 - ytail
-      if (membership) {
-        m <- colnames (clust$data)[-a]
-        text.default (x1, y1a-(ybx/2), m, cex=cex)
-        }
-      else {
-        points (x1, y1a-ybx/2, pch=pch, cex=size, col=kol[x1])
-        text.default (x1, y1a-(ybx/2), as.character(-a), cex=cex)
-        }
+      points (x1, y1a-ybx/2, pch=pch, cex=size, col=kol[x1])
+      text.default (x1, y1a-(ybx/2), as.character(-a), cex=cex)
       if (nodeinfo) {
         string <- paste (as.character (clust$size[-a]), cases)
         text.default (x1, y1a-1.3*ybx, string, cex=cex)
@@ -243,14 +245,8 @@ draw.clust <- function (cluster, data=NULL, cex=par("cex"),
     else {
       x2 <- cord[-b]
       y1b <- y2 - ytail
-      if (membership) {
-        m <- colnames (clust$data)[-b]
-        text.default (x2, y1b-(ybx/2), m, cex=cex)
-        }
-      else {
-        points (x2, y1b-ybx/2, pch=pch, cex=size, col=kol[x2])
-        text.default (x2, y1b-(ybx/2), as.character(-b), cex=cex)
-        }
+      points (x2, y1b-ybx/2, pch=pch, cex=size, col=kol[x2])
+      text.default (x2, y1b-(ybx/2), as.character(-b), cex=cex)
       if (nodeinfo) {
         string <- paste (as.character (clust$size[-b]), cases)
         text.default (x2, y1b-1.3*ybx, string, cex=cex)

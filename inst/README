@@ -1,5 +1,14 @@
 Changes in contributed package maptree:
 
+1.4-6, 28 January 2010
+
+* fixed clip.clust and draw.clust again to force data required
+  from either twins or hclust models
+
+* removed membership option from draw.clust because not really
+  practical (usually drawing aggregated clusters with multiple 
+  members; complicates determining size of graphic)
+
 1.4-5, 26 January 2009
 
 * changed map.tree.Rd to fix \code quote issue in response 
