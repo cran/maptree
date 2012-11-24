@@ -30,7 +30,7 @@
   \code{pch}, to draw shaded polygon symbols for key.
 }
 \value{The vector of colors supplied or generated.}
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link{ngon}}, 
   \code{\link{map.groups}}

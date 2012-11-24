@@ -17,5 +17,5 @@
   and with the projection origin latitude at 41 degrees,
   45 minutes North latitude.
 }
-\source{Denis White, \email{white.denis@epa.gov} }
+\source{Denis White}
 \keyword{datasets}

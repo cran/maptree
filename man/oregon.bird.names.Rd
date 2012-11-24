@@ -14,7 +14,7 @@
   the Oregon Natural Heritage Program (ONHP), and
   NatureServe.
 }
-\source{Denis White, \email{white.denis@epa.gov} }
+\source{Denis White}
 \references{
   Master, L. (1996) Predicting distributions for vertebrate
   species: some observations, \emph{Gap Analysis: A Landscape

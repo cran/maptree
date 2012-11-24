@@ -16,7 +16,7 @@
   \code{\link{draw.clust}}.
 }
 \value{hclust object} 
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link{hclust}}, 
   \code{\link[cluster]{twins.object}}

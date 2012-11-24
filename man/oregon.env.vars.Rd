@@ -24,7 +24,7 @@
     max.slope \tab maximum slope (percent)
   }
 }
-\source{Denis White, \email{white.denis@epa.gov} }
+\source{Denis White}
 \references{
   White, D., Preston, E.M., Freemark, K.E., Kiester, A.R. (1999)
   A hierarchical framework for conserving biodiversity,

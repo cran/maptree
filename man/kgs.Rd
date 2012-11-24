@@ -27,8 +27,6 @@
   very slow with large n.  For improvements, at least it should only 
   calculate the spread for clusters that are split at each level, 
   rather than over again for all.
-
-  Uses contributed function \code{\link[combinat]{combn}}.
 }
 \value{Vector of the penalty function for trees of size 2:maxclust. 
   The names of vector elements are the respective numbers of clusters.}
@@ -38,14 +36,13 @@
   into conformationally-related subfamilies, \emph{Protein Engineering}, 
   \bold{9}, 1063-1065.
 }
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link[cluster]{twins.object}}, 
   \code{\link[cluster]{dissimilarity.object}}, 
   \code{\link{hclust}}, 
   \code{\link{dist}},
   \code{\link{clip.clust}},
-  \code{\link[combinat]{combn}}
 }
 \examples{
   library (cluster)

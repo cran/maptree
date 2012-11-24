@@ -26,7 +26,7 @@
   An alternative to \code{\link{pltree}} and \code{\link{plot.hclust}}.
 }
 \value{The vector of colors supplied or generated.}
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link[cluster]{agnes}}, 
   \code{\link[cluster]{diana}}, 

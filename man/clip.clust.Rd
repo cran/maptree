@@ -22,7 +22,7 @@
   Used with \code{\link{draw.clust}}.  See example.
 }
 \value{Pruned cluster object of class \code{hclust}.}
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White }
 \seealso{
   \code{\link{hclust}}, 
   \code{\link[cluster]{twins.object}}, 

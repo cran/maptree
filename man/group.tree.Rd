@@ -15,10 +15,9 @@
   Normally used with \code{\link{map.groups}}.  See example.
 }
 \value{Vector of rearranged \code{tree[["where"]]}} 
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link[rpart]{rpart}}, 
-  \code{\link[tree]{tree}}, 
   \code{\link{map.groups}}
 }
 \examples{

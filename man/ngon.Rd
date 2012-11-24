@@ -24,7 +24,7 @@
   at (0, d/2).
 }
 \value{Invisible.}
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link{polygon}}, 
   \code{\link{lines}}, 

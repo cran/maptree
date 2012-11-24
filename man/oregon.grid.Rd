@@ -33,7 +33,7 @@
   and with the projection origin latitude at 41 degrees,
   45 minutes North latitude.
 }
-\source{Denis White, \email{white.denis@epa.gov} }
+\source{Denis White}
 \references{
   White, D., Kimerling, A.J., Overton, W.S.  (1992)  Cartographic
   and geometric components of a global sampling design for

@@ -19,13 +19,13 @@
 }
 \details{
   A minor enhancement of the existing \code{\link{prune.rpart}} to
-  incorporate the parameter \code{best} as it is used in
-  \code{\link[tree]{prune.tree}}.  See example.
+  incorporate the parameter \code{best} as it is used in the 
+  (now defunct)  \code{prune.tree} function in the old \pkg{tree}
+  package.  See example.
 }
 \value{Pruned tree object of class \code{rpart}.}
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
-  \code{\link[tree]{prune.tree}},
   \code{\link[rpart]{rpart}}, 
   \code{\link[rpart]{prune.rpart}}
 }

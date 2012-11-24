@@ -46,10 +46,9 @@
   factor name, and correspondingly for the right.
 }
 \value{The vector of colors supplied or generated.}
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link[rpart]{rpart}}, 
-  \code{\link[tree]{tree}}, 
   \code{\link{draw.clust}}, 
   \code{\link{map.groups}}
 }

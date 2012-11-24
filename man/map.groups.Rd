@@ -39,7 +39,7 @@
   observation in pts.
 }
 \value{The vector of fill colors supplied or generated.}
-\author{Denis White, \email{white.denis@epa.gov} }
+\author{Denis White}
 \seealso{
   \code{\link{ngon}}, 
   \code{\link{polygon}}, 
