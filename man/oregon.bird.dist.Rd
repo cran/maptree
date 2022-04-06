@@ -33,11 +33,11 @@
   environmental monitoring, \emph{Cartography and Geographic
   Information Systems}, \bold{19}(1), 5-22.
 
-  TNC, \url{http://nature.org/}
+  TNC, \url{https://www.nature.org/en-us/}
 
-  ONHP, \url{http://natureserve.org/nhp/us/or/}
+  ONHP, \url{https://inr.oregonstate.edu/orbic/}
 
-  NatureServe, \url{http://natureserve.org/}
+  NatureServe, \url{https://www.natureserve.org/}
 }
 \seealso{
   \code{\link{oregon.env.vars}}, 

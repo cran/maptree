@@ -1,6 +1,6 @@
-ce9fdcd5eae009589b2d425b0800671e *DESCRIPTION
-96b8fdd473d3e74e506bf4a7e0c34289 *NAMESPACE
-8d435511854a0366bdf3badbe84c3851 *R/maptree.R
+125144b08d21a5a6301d995158196300 *DESCRIPTION
+5ec3761b53e647472b1d6be189e3a2b1 *NAMESPACE
+cfda129191ed86543a5e1948aa89778f *R/maptree.R
 aa11a32db42cf81c5bacdf9683f3f1f3 *data/oregon.bird.dist.tab.gz
 b3e8e5448df04125e040affcbe758c1e *data/oregon.bird.names.rda
 10db1e8e08cb53e1c204350fc74cac31 *data/oregon.border.tab.gz
@@ -17,8 +17,8 @@ c87ce83789f46b9649b8756ff9687b33 *man/group.tree.Rd
 49e0055af5cd335cc27e9d49a576b52a *man/map.groups.Rd
 bfed4f892eb34198b97d2c7cc6309d2f *man/map.key.Rd
 4f553cc9dd155a2d2198bed6288c6634 *man/ngon.Rd
-c7ae4b8e28c3f73aea3f65f54767ac0c *man/oregon.bird.dist.Rd
-c878887c8105d6f57087e9486d4a7093 *man/oregon.bird.names.Rd
+04750526bd19a3fe769d5f5859ca3fc5 *man/oregon.bird.dist.Rd
+ebf0ba7c1efeb940a67521efd8675b02 *man/oregon.bird.names.Rd
 5dec01b3f58a41e68927f465847dcd1d *man/oregon.border.Rd
 c87cf05aa54b447aec6612f382913bf7 *man/oregon.env.vars.Rd
 9deb11d0a10eff86e53856b5743289b5 *man/oregon.grid.Rd

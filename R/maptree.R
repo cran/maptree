@@ -618,8 +618,9 @@ kgs <- function (cluster, diss, alpha=1, maxclust=NULL)
     clust <- as.hclust (cluster)
   else
     stop("kgs: input not hclust or twins")
-  if (class (diss) != "dist" && 
-      class (diss) != "dissimilarity") 
+  ## if (class (diss) != "dist" && 
+      ## class (diss) != "dissimilarity") 
+  if (!any(inherits(diss, c("dist", "dissimilarity"), which=TRUE)))
     stop ("kgs: input not dist or dissimilarity")
   n <- length (clust$order)
   if (is.null (maxclust) || maxclust > (n-1)) m <- n - 1

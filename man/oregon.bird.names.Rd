@@ -22,11 +22,11 @@
   and Davis, F.W., editors, American Society for Photogrammetry
   and Remote Sensing, Bethesda, MD, pp. 171-176.
 
-  TNC, \url{http://nature.org/}
+  TNC, \url{https://www.nature.org/en-us/}
 
-  ONHP, \url{http://natureserve.org/nhp/us/or/}
+  ONHP, \url{https://inr.oregonstate.edu/orbic/}
 
-  NatureServe, \url{http://natureserve.org/}
+  NatureServe, \url{https://www.natureserve.org/}
 }
 \seealso{
   \code{\link{oregon.bird.dist}}
